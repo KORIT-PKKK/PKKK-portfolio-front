@@ -6,7 +6,7 @@ const ButtonUI = ({ onClick }) => {
     return (
         <>
             <div css={S.buttonBox}>
-                <button css={S.button} onClick={() => onClick('/postAddView')}>글쓰기</button>
+                <button css={S.button} onClick={() => onClick('/map')}>글쓰기</button>
             </div>
         </>
     );

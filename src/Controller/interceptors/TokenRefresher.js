@@ -1,8 +1,9 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { localURL } from '../../config/ApiURL';
 
 const axiosInstance = axios.create({
-    baseURL: `http://192.168.2.18:8080`,
+    baseURL: `${localURL}`,
     headers: { "Content-Type": "application/json" }
 });
 
@@ -21,7 +22,7 @@ const tokenRefresher = async () => {
         "username": username,
         "refreshToken": refreshToken
     }
-    const response = await axios.post("http://192.168.2.18:8080/api/auth/refresh", JSON.stringify(refreshInfo), option);
+    const response = await axios.post(`${localURL}/api/auth/refresh`, JSON.stringify(refreshInfo), option);
 
     let accessToken = response.data.accessToken;
     console.log(response);

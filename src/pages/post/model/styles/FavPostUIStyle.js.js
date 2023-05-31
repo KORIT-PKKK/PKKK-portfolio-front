@@ -18,6 +18,7 @@ export const header = css`
     align-items: center;
     width: 680px;
     height: 42px;
+    margin-bottom: 20px;
 `;
 
 export const profile = css`
@@ -28,6 +29,7 @@ export const profile = css`
     margin: -10px;
     padding: 10px;
     background-color: white;
+    cursor: pointer;
 `;
 
 export const profilePictureBox = css`
@@ -61,8 +63,13 @@ export const follow = css`
     justify-content: center;
 `;
 
+export const unFollow = css`
+    padding: 5px;
+    justify-content: center;
+`;
+
 export const followButton = css`
-    width: 70px;
+    width: 80px;
     height: 30px;
     font-weight: 600;
     font-size: 13px;
@@ -70,24 +77,44 @@ export const followButton = css`
     border-radius: 5px;
     background-color: #F3F9FE;
     color: #2D8DEE;
+    cursor: pointer;
 `;
 
-export const block = css`
-    justify-content: center;
-`;
-
-export const blockButton = css`
-    border: 1px solid white;
-    background-color: white;
-    color: #8F8F8F;
-    font-size: 16px;
-    width: 26px;
+export const unFollowButton = css`
+    width: 80px;
     height: 30px;
+    font-weight: 600;
+    font-size: 13px;
+    border: #F3F9FE;
+    border-radius: 5px;
+    background-color: #dbdbdb;
+    color: black;
+    cursor: pointer;
 `;
+
+export const postUnSaveButton = css`
+    width: 40px;
+    margin: 0px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+`;
+
+export const postUnSave = css`
+    color: red;
+`;
+
+export const saveUnIcon = css`
+    font-size: 16px;
+    fill: red;
+`;
+
 
 export const main = css`
     width: 680px;
     height: 439px;
+    cursor: pointer;
 `;
 
 export const blank = css`
@@ -113,6 +140,7 @@ export const wrapper1 = css`
     grid-template-areas: 
     "box1";
 `;
+
 export const wrapper2 = css`
     width: 100%;
     display: grid;
@@ -121,6 +149,7 @@ export const wrapper2 = css`
     grid-template-areas: 
     "box1 box2";
 `;
+
 export const wrapper3 = css`
     width: 100%;
     display: grid;
@@ -148,7 +177,7 @@ export const detail = css`
     width: 680px;
     height: auto;
     margin: 5px 0px 5px 0px;
-    padding: 30px 20px 30px 20px;
+    padding: 30px 20px 30px 20px;   
 `;
 
 export const tag = css`
@@ -171,6 +200,7 @@ export const footer = css`
 export const place = css`
     width: 593px;
     height: 20px;
+    cursor: pointer;
 `;
 
 export const placeDetail = css` 
@@ -185,15 +215,39 @@ export const placeWordConnection = css`
 export const favorites = css`
     display: flex;
     text-align: right;
-    width: 39px;
-    height: 39px;
+    width: 50px;
+    height: 42px;
 `;
 
-export const favoritesButton = css`
+export const placeSaveButton = css`
     background-color: white;
     border: 1px solid white;
+    font-weight: 600;
+    cursor: pointer;
 `;
 
-export const favoritesDetail = css`
+export const placeUnSaveButton = css`
+    background-color: white;
+    border: 1px solid white;
+    font-weight: 600;
+    cursor: pointer;
+`;
+
+export const placeSaveIcon = css`
+    fill: black;
+`;
+
+export const placeUnSaveIcon = css`
+    fill: green;
+`;
+
+
+export const placeSaveDetail = css`
     font-size: 11px;
+    color: black;
+`;
+
+export const placeUnSaveDetail = css`
+    font-size: 11px;
+    color: green;
 `;

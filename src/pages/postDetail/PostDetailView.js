@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import PostDetailUI from './model/PostDetailUI';
 import PlaceUI from './model/PlaceUI';
 import HeaderUI from './model/HeaderUI';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import axios from 'axios';
+import { localURL } from '../../config/ApiURL';
+import Cookies from 'js-cookie';
 
 const PostDetailView = () => {
-    const { postId } = useParams();
+    const location = useLocation();
+    const postId = location.state.postId;
+    const rtk = Cookies.get("refreshToken");
+
     const [postDetail, setPostDetail] = useState({
         postId: 0,
         userId: 0,
@@ -33,24 +38,37 @@ const PostDetailView = () => {
     }
 
     const postDetailView = useQuery(["postDetailView"], async () => {
+
+        if (rtk === undefined) {
+            const params = {
+                params: {
+                    postId: postId
+                }
+            }
+            const response = await axios.get(`${localURL}/api/post/view`, params);
+            return response;
+        }
+
+        const userId = Cookies.get("userId");
         const params = {
             params: {
-                postId: postId
+                postId: postId,
+                userId: userId
             }
         }
-        const response = await axios.get("http://192.168.2.18:8080/api/post/view", params);
+        const response = await axios.get(`${localURL}/api/post/view`, params);
         return response;
+
     }, {
         onSuccess: (response) => {
             setPostDetail(response.data[0]);
-            console.log(response)
         }
     });
 
     if (postDetailView.isLoading) {
         <div>불러오는 중...</div>
     }
-
+    console.log(postDetail)
     return (
         <>
             <HeaderUI onClick={menuClickHandle} />

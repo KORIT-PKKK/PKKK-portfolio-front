@@ -22,7 +22,6 @@ export const profileBox = css`
     border-radius: 50%;
     width: 64px;
     height: 64px;
-    cursor: pointer;
 `;
 
 export const usernameBox = css`
@@ -34,7 +33,6 @@ export const usernameBox = css`
 `;
 
 export const username = css`
-    cursor: pointer;
 `;
 
 export const shareButton = css`
@@ -44,7 +42,6 @@ export const shareButton = css`
     width: 22px;
     height: 22px;
     margin-left: 5px;
-    cursor: pointer;
 `;
 
 export const Buttons = css`
@@ -57,7 +54,6 @@ export const reviewButton = css`
     text-align: center;
     border: none;
     background-color: white;
-    cursor: pointer;
     font-size: 16px;
 `;
 
@@ -65,7 +61,6 @@ export const pictureButton = css`
     text-align: center;
     border: none;
     background-color: white;
-    cursor: pointer;
     font-size: 16px;
 `;
 
@@ -73,7 +68,6 @@ export const followingButton = css`
     text-align: center;
     border: none;
     background-color: white;
-    cursor: pointer;
     font-size: 16px;
 `;
 
@@ -81,7 +75,6 @@ export const followerButton = css`
     border: none;
     background-color: white;
     text-align: center;
-    cursor: pointer;
     font-size: 16px;
 `;
 
@@ -89,7 +82,6 @@ export const count = css`
     display: flex;
     justify-content: center;
     text-align: center;
-    cursor: pointer;
     font-size: 16px;
     font-weight: 600;
 `;

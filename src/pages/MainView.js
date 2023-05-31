@@ -16,11 +16,12 @@ import { useRecoilState } from 'recoil';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import { axiosInstance, tokenRefresher } from '../Controller/interceptors/TokenRefresher';
+import GoogleMaps from './google/GoogleMaps';
 
 
 const MainView = () => {
     const navigate = useNavigate();
-    const authRequiredPath = ["/userSetting", "/userUpdate", "/postAddView"];
+    const authRequiredPath = ["/userSetting", "/userUpdate", "/postAddView", "/postUpdateView"];
     const authPath = "/auth";
     const rtk = Cookies.get("refreshToken");
     const [selectPath, setSelectPath] = useRecoilState(pathState);
@@ -61,10 +62,11 @@ const MainView = () => {
             "refreshToken": rtk
         }
         try {
-            await axiosInstance.post("/api/auth/signout", JSON.stringify(data));
+            await axiosInstance.post("/api/auth/signout", data);
             Cookies.remove("accessToken", { path: '/' });
             Cookies.remove("refreshToken", { path: '/' });
             Cookies.remove("username", { path: '/' });
+            Cookies.remove("userId", { path: '/' });
             window.location.replace("/");
         } catch (error) {
             console.log(error.response)
@@ -101,6 +103,9 @@ const MainView = () => {
         stateChange();
     });
 
+    const moveLogin = () => {
+        navigate("auth/login")
+    }
 
     return (
         <>
@@ -110,11 +115,17 @@ const MainView = () => {
                     {isLoading ? (
                         <div>Loading...</div>
                     ) : authState ? (
-                        <UserOutLineUI currentUserId={userId} onClick={selectClickHandle} />
+                        <>
+                            <UserOutLineUI currentUserId={userId} onClick={selectClickHandle} />
+                            <ButtonUI onClick={selectClickHandle} />
+                        </>
                     ) : (
-                        <RequestLoginUI onClick={menuClickHandle} />
+                        <>
+                            <RequestLoginUI onClick={menuClickHandle} />
+                            <ButtonUI onClick={moveLogin} />
+                        </>
                     )}
-                    <ButtonUI onClick={menuClickHandle} />
+
                     <TabsUI onClick={selectClickHandle} selectPath={selectPath} />
                 </div>
             </header >
@@ -124,6 +135,7 @@ const MainView = () => {
                     <Route path="/feed" element={<PostView />} />
                     <Route path="/timeLine" element={<TimelineView />} />
                     <Route path="/fav/*" element={<FavView />} />
+                    <Route path='/map' element={<GoogleMaps />} />
                 </Routes>
             </main>
             <footer css={S.footerBox}>

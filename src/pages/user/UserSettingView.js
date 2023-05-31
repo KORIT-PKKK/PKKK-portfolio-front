@@ -50,6 +50,7 @@ const UserSettingView = () => {
             Cookies.remove("accessToken", { path: '/' });
             Cookies.remove("refreshToken", { path: '/' });
             Cookies.remove("username", { path: '/' });
+            Cookies.remove("userId", { path: '/' });
             alert("로그아웃 되었습니다!");
             window.location.replace("/");
         } catch (error) {
@@ -84,6 +85,11 @@ const UserSettingView = () => {
             <div css={S.Buttoncontainer}>
                 <div css={S.buttonBox} onClick={signOut}>
                     <button css={S.button}><div>로그아웃</div> <div css={S.logoutUsername}>{username}</div></button>
+                </div>
+            </div>
+            <div css={S.Buttoncontainer}>
+                <div css={S.buttonBox} onClick={() => menuClickHandle('/change/password')}>
+                    <button css={S.button}><div>비밀번호 변경</div></button>
                 </div>
             </div>
             <div css={S.Buttoncontainer}>

@@ -47,17 +47,19 @@ export const placeTimeDate = css`
     margin-left: 10px;
 `;
 
-export const placeVisit = css`
-    display: flex;
-    margin-left: 10px;
-    font-size: 5px;
+export const detailContainer = css`
+  display: flex;
 `;
 
-export const placePrice = css`
+export const detail = css`
     display: flex;
     align-items: center;
     justify-content: flex-start;
     font-size: 12px;
+`;
+
+export const wordConnection = css`
+  margin: 0px 10px;
 `;
 
 export const mainContainer = css`
@@ -77,22 +79,6 @@ export const starScore = css`
     display: flex;
     cursor: pointer;
     margin: 20px 0px 20px 0px;
-`;
-
-export const pictureButton = css`
-  padding: 10px 10px;
-  background-color: white;
-  border: 1px solid #dbdbdb;
-  border-radius: 6px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #dbdbdb;
-  }
-  &:active {
-    background-color: #fafafa;
-  }
-
 `;
 
 export const mainPicture = css`
@@ -143,6 +129,19 @@ export const mainTextInput = css`
     background-color: #dbdbdb; /* 스크롤바 색상 설정 */
     border-radius: 3px; /* 스크롤바 모서리 반경 설정 */
   }
+`;
+
+export const error = css`
+  margin: 7px 0px;
+  color: red;
+  font-size: 12px;
+`;
+
+export const wordCountContainer = css`
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
+  font-size: 15px;
 `;
 
 export const mainTextContainer = css`

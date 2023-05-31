@@ -5,13 +5,14 @@ export const placeContainer = css`
     display: flex;
     width: 680px;
     height: 66px;
-    margin: 10px auto;
+    margin: 30px auto;
     padding: 12px 20px 12px 20px;
 `;
 
 export const place = css`
     width: 593px;
     height: 20px;
+    cursor: pointer;
 `;
 
 export const placeDetail = css` 
@@ -30,11 +31,18 @@ export const favorites = css`
     height: 39px;
 `;
 
-export const favoritesButton = css`
+export const placeUnSaveButton = css`
     background-color: white;
     border: 1px solid white;
+    font-weight: 600;
+    cursor: pointer;
 `;
 
-export const favoritesDetail = css`
+export const placeUnSaveIcon = css`
+    fill: red;
+`;
+
+export const placeUnSaveDetail = css`
     font-size: 11px;
+    color: red;
 `;

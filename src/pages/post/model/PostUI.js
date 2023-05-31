@@ -1,13 +1,47 @@
 /* eslint-disable jsx-a11y/alt-text */
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './styles/PostUIStyle';
 import { AiOutlineStar } from 'react-icons/ai';
 import { SlArrowRight } from 'react-icons/sl';
+import { AiFillStar } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
+import { useMutation } from 'react-query';
+import Cookies from 'js-cookie';
+import { axiosInstance } from '../../../Controller/interceptors/TokenRefresher';
+
 const PostUI = ({ post, onClick }) => {
     const navigate = useNavigate();
+    const rtk = Cookies.get("refreshToken");
+    const userId = Cookies.get("userId");
+    const [postFavState, setPostFavState] = useState(false);
+    const [locationFavState, setLocationFavState] = useState(false);
+    const [subState, setSubState] = useState(false);
     let imageUrls = [];
+
+    useEffect(() => {
+        const userLocFavId = post.userLocFavId;
+        const userPostFavId = post.userPostFavId;
+        const userSubId = post.userSubId;
+
+        if (userLocFavId === null) {
+            setLocationFavState(false);
+        } else {
+            setLocationFavState(true);
+        }
+
+        if (userPostFavId === null) {
+            setPostFavState(false);
+        } else {
+            setPostFavState(true);
+        }
+
+        if (userSubId === null) {
+            setSubState(false);
+        } else {
+            setSubState(true);
+        }
+    }, [post.userLocFavId, post.userPostFavId, post.userSubId]);
 
     let now = new Date();
     let postDate = new Date(post.updateAt);
@@ -63,18 +97,140 @@ const PostUI = ({ post, onClick }) => {
     }
 
     const showPostDetail = () => {
-        navigate(`/postDetail/${post.postId}`);
+        navigate(`/postDetail`, { state: { postId: post.postId } });
     }
 
     const showOtherUser = () => {
-        navigate(`/otherUser?userId=${post.userId}`);
+        navigate('/otherUser', { state: { userId: post.userId } });
     }
+
+    const showPlaceDetail = () => {
+        navigate('/locationDetail', { state: { locId: post.locId } });
+    }
+
+
+    const addPostFav = useMutation(async () => {
+        const data = {
+            "username": Cookies.get("username"),
+            "elementId": post.postId
+        }
+        try {
+            const response = await axiosInstance.post(`/api/user/favorite/post/add`, data);
+            return response;
+        } catch {
+            alert("로그인 후 사용해주세요.");
+        }
+    }, {
+        onSuccess: (response) => {
+            if (response.status === 200) {
+                setPostFavState(true);
+                alert(`즐겨찾기에서 저장했습니다.`);
+            }
+        }
+    });
+
+    const undoPostFav = useMutation(async () => {
+        const data = {
+            "elementId": post.userPostFavId
+        }
+        try {
+            const response = await axiosInstance.delete(`/api/user/favorite/post/undo`, { data: data });
+            return response;
+        } catch {
+            alert("로그인 후 사용해주세요.");
+        }
+    }, {
+        onSuccess: (response) => {
+            if (response.status === 200) {
+                setPostFavState(false);
+                alert(`즐겨찾기에서 삭제했습니다.`);
+            }
+        }
+    });
+
+    const addLocationFav = useMutation(async () => {
+        const data = {
+            "username": Cookies.get("username"),
+            "elementId": post.locId
+        }
+        try {
+            const response = await axiosInstance.post(`/api/user/favorite/loc/add`, data);
+            return response;
+        } catch {
+            alert("로그인 후 사용해주세요.");
+        }
+    }, {
+        onSuccess: (response) => {
+            if (response.status === 200) {
+                setLocationFavState(true);
+                alert(`${post.locName}을(를) 즐겨찾기에 저장했습니다.`);
+            }
+        }
+    });
+
+    const undoLocationFav = useMutation(async () => {
+        const data = {
+            "elementId": post.userLocFavId
+        }
+        try {
+            const response = await axiosInstance.delete(`/api/user/favorite/loc/undo`, { data: data });
+            return response;
+        } catch {
+            alert("로그인 후 사용해주세요.");
+        }
+    }, {
+        onSuccess: (response) => {
+            if (response.status === 200) {
+                setLocationFavState(false);
+                alert(`${post.locName}을(를) 즐겨찾기에서 삭제했습니다.`);
+            }
+        }
+    });
+
+    const addSub = useMutation(async () => {
+        const data = {
+            "userId": userId,
+            "subUserId": post.userId
+        }
+        try {
+            const response = await axiosInstance.post(`/api/user/subscribe/add`, data);
+            return response;
+        } catch {
+            alert("로그인 후 사용해주세요.");
+        }
+    }, {
+        onSuccess: (response) => {
+            if (response.status === 200) {
+                setSubState(true);
+                alert(`${post.name}님을 팔로우 합니다.`);
+            }
+        }
+    });
+
+    const unSub = useMutation(async () => {
+        const data = {
+            "elementId": post.userSubId
+        }
+        try {
+            const response = await axiosInstance.delete(`/api/user/subscribe/unSub`, { data: data });
+            return response;
+        } catch {
+            alert("로그인 후 사용해주세요.");
+        }
+    }, {
+        onSuccess: (response) => {
+            if (response.status === 200) {
+                setSubState(false);
+                alert(`${post.name}님을 언팔로우 했습니다.`);
+            }
+        }
+    });
 
     return (
         <>
             <div css={S.feed}>
                 <header css={S.header}>
-                    <button css={S.profile} onClick={() => onClick('/otherUser')}>
+                    <button css={S.profile} onClick={showOtherUser}>
                         <div css={S.profilePictureBox}>
                             <div css={S.profilePicture}></div>
                         </div>
@@ -87,9 +243,40 @@ const PostUI = ({ post, onClick }) => {
                             </div>
                         </div>
                     </button>
-                    <div css={S.follow}>
-                        <button css={S.followButton}>팔로우</button>
-                    </div>
+                    {(rtk === undefined || parseInt(userId) === parseInt(post.userId))
+                        ? (<></>)
+                        : (<>
+                            {subState ?
+                                <>
+                                    <div css={S.unFollow}>
+                                        <button css={S.unFollowButton} onClick={() => { unSub.mutate() }}>언팔로우</button>
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    <div css={S.follow}>
+                                        <button css={S.followButton} onClick={() => { addSub.mutate() }}>팔로우</button>
+                                    </div>
+                                </>
+                            }
+
+                            {postFavState ?
+                                <>
+                                    <div css={S.postUnSaveButton} onClick={() => { undoPostFav.mutate() }}>
+                                        <div><AiFillStar css={S.saveUnIcon} /></div>
+                                        <div css={S.postUnSave}>저장</div>
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    <div css={S.postSaveButton} onClick={() => { addPostFav.mutate() }}>
+                                        <div><AiOutlineStar css={S.saveIcon} /></div>
+                                        <div css={S.postSave}>저장</div>
+                                    </div>
+                                </>
+                            }
+                        </>)
+                    }
                 </header>
                 <main css={mainSetting(imageUrls.length)} onClick={showPostDetail}>
                     <div css={getStyles(imageUrls)}>
@@ -107,8 +294,8 @@ const PostUI = ({ post, onClick }) => {
                     </div>
                 </div>
                 <footer>
-                    <div css={S.footer}>
-                        <div css={S.place}>
+                    <div css={S.footer} >
+                        <div css={S.place} onClick={showPlaceDetail}>
                             <div css={S.placeDetail}>
                                 <div>{post.locName}</div>
                                 <div><SlArrowRight /></div>
@@ -120,10 +307,27 @@ const PostUI = ({ post, onClick }) => {
                             </div>
                         </div>
                         <div css={S.favorites}>
-                            <button css={S.favoritesButton}>
-                                <div><AiOutlineStar /></div>
-                                <div css={S.favoritesDetail}>저장</div>
-                            </button>
+                            {(rtk === undefined)
+                                ? <></>
+                                :
+                                <>
+                                    {locationFavState ?
+                                        <>
+                                            <button css={S.placeUnSaveButton} onClick={() => { undoLocationFav.mutate() }}>
+                                                <div><AiFillStar css={S.placeUnSaveIcon} /></div>
+                                                <div css={S.placeUnSaveDetail}>저장</div>
+                                            </button>
+                                        </>
+                                        :
+                                        <>
+                                            <button css={S.placeSaveButton} onClick={() => { addLocationFav.mutate() }}>
+                                                <div><AiOutlineStar css={S.placeSaveIcon} /></div>
+                                                <div css={S.placeSaveDetail}>저장</div>
+                                            </button>
+                                        </>
+                                    }
+                                </>
+                            }
                         </div>
                     </div>
                 </footer>

@@ -6,8 +6,10 @@ import { IoMdArrowDropleftCircle } from 'react-icons/io';
 import { IoMdArrowDroprightCircle } from 'react-icons/io';
 import { useQuery } from 'react-query';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const PostDetailUI = ({ postDetail }) => {
+    const navigate = useNavigate();
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const imageUrls = postDetail.picDatas ? postDetail.picDatas.split(',') : [];
 
@@ -19,11 +21,15 @@ const PostDetailUI = ({ postDetail }) => {
         setCurrentImageIndex((prevIndex) => (prevIndex - 1 + imageUrls.length) % imageUrls.length);
     }
 
+    const showOtherUser = () => {
+        navigate('/otherUser', { state: { userId: postDetail.userId } });
+    }
+
     return (
         <>
             <div css={S.feed}>
                 <header css={S.header}>
-                    <button css={S.profile}>
+                    <button css={S.profile} onClick={showOtherUser}>
                         <div css={S.profilePictureBox}>
                             <div css={S.profilePicture}></div>
                         </div>

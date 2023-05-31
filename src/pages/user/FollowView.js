@@ -33,10 +33,10 @@ const FollowView = () => {
                 <div css={S.followBox}>
                     <div css={S.followButtonBox}>
                         <button css={[S.followeButton, (selectPath === "/follow" || selectPath === "/follow/following") && S.selectButton]} onClick={() => menuClickHandle("/follow/following")}>
-                            팔로잉0
+                            팔로잉
                         </button>
                         <button css={[S.followeButton, selectPath === "/follow/follower" && S.selectButton]} onClick={() => menuClickHandle("/follow/follower")}>
-                            팔로워0
+                            팔로워
                         </button>
                     </div>
                 </div>

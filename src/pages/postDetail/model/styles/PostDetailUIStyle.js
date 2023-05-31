@@ -28,6 +28,7 @@ export const profile = css`
     margin: -10px;
     padding: 10px;
     background-color: white;
+    cursor: pointer;
 `;
 
 export const profilePictureBox = css`
@@ -124,5 +125,4 @@ export const detail = css`
     height: auto;
     margin: 5px 0px 5px 0px;
     padding: 30px 20px 30px 20px;
-    cursor: pointer;
 `;

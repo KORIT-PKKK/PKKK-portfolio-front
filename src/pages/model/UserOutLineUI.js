@@ -4,6 +4,7 @@ import * as S from './styles/UserOutLineUIStyle';
 import { GrShare } from 'react-icons/gr';
 import { useQuery } from 'react-query';
 import axios from 'axios';
+import { localURL } from '../../config/ApiURL';
 
 
 const UserOutLineUI = ({ currentUserId, onClick }) => {
@@ -24,7 +25,7 @@ const UserOutLineUI = ({ currentUserId, onClick }) => {
                 userId: currentUserId,
             },
         };
-        const response = await axios.get("http://192.168.2.18:8080/api/user/info", params)
+        const response = await axios.get(`${localURL}/api/user/info`, params)
         console.log(response.data[0]);
         return response;
     }, {

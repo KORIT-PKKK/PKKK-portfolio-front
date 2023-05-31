@@ -63,8 +63,13 @@ export const follow = css`
     justify-content: center;
 `;
 
+export const unFollow = css`
+    padding: 5px;
+    justify-content: center;
+`;
+
 export const followButton = css`
-    width: 70px;
+    width: 80px;
     height: 30px;
     font-weight: 600;
     font-size: 13px;
@@ -73,6 +78,54 @@ export const followButton = css`
     background-color: #F3F9FE;
     color: #2D8DEE;
     cursor: pointer;
+`;
+
+export const unFollowButton = css`
+    width: 80px;
+    height: 30px;
+    font-weight: 600;
+    font-size: 13px;
+    border: #F3F9FE;
+    border-radius: 5px;
+    background-color: #dbdbdb;
+    color: black;
+    cursor: pointer;
+`;
+
+export const postSaveButton = css`
+    width: 40px;
+    margin: 0px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+`;
+
+export const postUnSaveButton = css`
+    width: 40px;
+    margin: 0px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+`;
+
+export const postSave = css`
+    color: black;
+`;
+
+export const postUnSave = css`
+    color: green;
+`;
+
+export const saveIcon = css`
+    font-size: 16px;
+    fill: black;
+`;
+
+export const saveUnIcon = css`
+    font-size: 16px;
+    fill: green;
 `;
 
 
@@ -142,8 +195,7 @@ export const detail = css`
     width: 680px;
     height: auto;
     margin: 5px 0px 5px 0px;
-    padding: 30px 20px 30px 20px;
-    cursor: pointer;
+    padding: 30px 20px 30px 20px;   
 `;
 
 export const tag = css`
@@ -161,12 +213,12 @@ export const footer = css`
     height: 66px;
     margin: 5px 0px 0px 0px;
     padding: 12px 20px 12px 20px;
-    cursor: pointer;
 `;
 
 export const place = css`
     width: 593px;
     height: 20px;
+    cursor: pointer;
 `;
 
 export const placeDetail = css` 
@@ -181,15 +233,39 @@ export const placeWordConnection = css`
 export const favorites = css`
     display: flex;
     text-align: right;
-    width: 39px;
-    height: 39px;
+    width: 50px;
+    height: 42px;
 `;
 
-export const favoritesButton = css`
+export const placeSaveButton = css`
     background-color: white;
     border: 1px solid white;
+    font-weight: 600;
+    cursor: pointer;
 `;
 
-export const favoritesDetail = css`
+export const placeUnSaveButton = css`
+    background-color: white;
+    border: 1px solid white;
+    font-weight: 600;
+    cursor: pointer;
+`;
+
+export const placeSaveIcon = css`
+    fill: black;
+`;
+
+export const placeUnSaveIcon = css`
+    fill: green;
+`;
+
+
+export const placeSaveDetail = css`
     font-size: 11px;
+    color: black;
+`;
+
+export const placeUnSaveDetail = css`
+    font-size: 11px;
+    color: green;
 `;
