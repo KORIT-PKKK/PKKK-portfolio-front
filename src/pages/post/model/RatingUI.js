@@ -97,10 +97,6 @@ const RatingUI = ({ onRatingChange }) => {
             })}
         </div>
       </div>
-
-      <footer className="flex h-7 items-center justify-center">
-        <p className="text-lg font-semibold">{commentMap[getFinalScore()]}</p>
-      </footer>
     </div>
   );
 };

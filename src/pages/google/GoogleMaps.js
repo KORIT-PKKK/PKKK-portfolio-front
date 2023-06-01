@@ -13,6 +13,7 @@ import { axiosInstance } from '../../Controller/interceptors/TokenRefresher';
 import emptyStar from '../post/model/assets/icon_empty_star.svg';
 import fullStar from '../post/model/assets/icon_full_star.svg';
 import halfStar from '../post/model/assets/icon_half_star.svg';
+import RatingScore from '../model/RatingScore';
 
 
 const GoogleMaps = () => {
@@ -115,30 +116,30 @@ const GoogleMaps = () => {
     return <div>불러오는 중...</div>
   }
 
-  const ratingHandler = (score) => {
-    return (
-      <div className="flex justify-center">
-      <div
-        className={`flex w-fit rounded-lg border-2 bg-slate-300 py-2 px-1  'border-yellow-400'
-          `}
-      >
-        {Array(5)
-          .fill(0)
-          .map((_, index) => {
-            return (
-              <img
-                key={index}
-                src={score > index + 1 ? fullStar : emptyStar}
-                data-star={index + 1}
-                style={{ width: '30px', height: '30px' }}
-                alt="star_image"
-              />
-            );
-          })}
-      </div>
-    </div>
-    );
-  }
+  // const ratingHandler = (score) => {
+  //   return (
+  //     <div className="flex justify-center">
+  //     <div
+  //       className={`flex w-fit rounded-lg border-2 bg-slate-300 py-2 px-1  'border-yellow-400'
+  //         `}
+  //     >
+  //       {Array(5)
+  //         .fill(0)
+  //         .map((_, index) => {
+  //           return (
+  //             <img
+  //               key={index}
+  //               src={score > index + 1 ? fullStar : emptyStar}
+  //               data-star={index + 1}
+  //               style={{ width: '30px', height: '30px' }}
+  //               alt="star_image"
+  //             />
+  //           );
+  //         })}
+  //     </div>
+  //   </div>
+  //   );
+  // }
 
 
   return isLoaded ? (
@@ -189,7 +190,7 @@ const GoogleMaps = () => {
               <h1 css={S.title}>{selectedMarker.title}</h1>
               {(selectedMarker.evalScore === null)
                 ? <h1>아직 평점이 없어요.</h1>
-                : <h1>평점: {ratingHandler(selectedMarker.evalScore)}</h1>}
+                : <h1><RatingScore rating={selectedMarker.evalScore}/></h1>}
               {authState ? (
                 locationFavState ? (
                   <div onClick={() => undoLocationFav.mutate()} css={S.unSave}>
@@ -211,37 +212,3 @@ const GoogleMaps = () => {
 };
 
 export default GoogleMaps;
-
-// const [map, setMap] = React.useState(null);
-// const [center, setCenter] = useState({ lat: 0, lng: 0 });
-
-// const { isLoaded } = useJsApiLoader({
-//   id: 'google-map-script',
-//   googleMapsApiKey: ""
-// });
-
-// useEffect(() => {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(
-//       (position) => {
-//         setCenter({
-//           lat: position.coords.latitude,
-//           lng: position.coords.longitude
-//         });
-//       },
-//       (error) => {
-//         console.error(error);
-//       }
-//     );
-//   }
-// }, []);
-
-// const onLoad = React.useCallback(function callback(map) {
-//   const bounds = new window.google.maps.LatLngBounds(center);
-//   map.fitBounds(bounds);
-//   setMap(map);
-// }, [center]);
-
-// const onUnmount = React.useCallback(function callback(map) {
-//   setMap(null);
-// }, []);
