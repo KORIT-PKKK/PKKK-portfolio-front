@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import * as S from './styles/LocationPostUIStyle';
 import { useNavigate } from 'react-router-dom';
+import RatingScoreUI from '../../model/RatingScoreUI';
 
 const PostDetailUI = ({ locationPost }) => {
     const navigate = useNavigate();
@@ -101,7 +102,7 @@ const PostDetailUI = ({ locationPost }) => {
                 </main>
                 <div>
                     <div css={S.detail}>
-                        {locationPost.content}{locationPost.evalScore}
+                        {locationPost.content}<RatingScoreUI rating={locationPost.evalScore}/>
                     </div>
                 </div>
             </div>
