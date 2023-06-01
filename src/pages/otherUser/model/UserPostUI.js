@@ -1,13 +1,29 @@
 /* eslint-disable jsx-a11y/alt-text */
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './styles/UserPostUIStyle';
-import { AiOutlineStar } from 'react-icons/ai';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { SlArrowRight } from 'react-icons/sl';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { useMutation } from 'react-query';
+import { axiosInstance } from '../../../Controller/interceptors/TokenRefresher';
 const UserPostUI = ({ post, onClick }) => {
     const navigate = useNavigate();
     let imageUrls = [];
+    const rtk = Cookies.get("refreshToken");
+    const authState = rtk !== undefined;
+    const [locationFavState, setLocationFavState] = useState(false);
+
+    useEffect(() => {
+        const userLocFavId = post.userLocFavId;
+
+        if (userLocFavId === null) {
+            setLocationFavState(false);
+        } else {
+            setLocationFavState(true);
+        }
+    }, [post.userLocFavId]);
 
     let now = new Date();
     let postDate = new Date(post.updateAt);
@@ -62,6 +78,47 @@ const UserPostUI = ({ post, onClick }) => {
         return map[length] ?? S.main;
     }
 
+    const addLocationFav = useMutation(async () => {
+        const data = {
+            "username": Cookies.get("username"),
+            "elementId": post.locId
+        }
+        try {
+            const response = await axiosInstance.post(`/api/user/favorite/loc/add`, data);
+            return response;
+        } catch {
+            alert("로그인 후 사용해주세요.");
+        }
+    }, {
+        onSuccess: (response) => {
+            if (response.status === 200) {
+                setLocationFavState(true);
+                alert(`${post.locName}을(를) 즐겨찾기에 저장했습니다.`);
+            }
+        }
+    });
+
+    const undoLocationFav = useMutation(async () => {
+        const data = {
+            "elementId": post.userLocFavId
+        }
+        try {
+            const response = await axiosInstance.delete(`/api/user/favorite/loc/undo`, { data: data });
+            return response;
+        } catch {
+            alert("로그인 후 사용해주세요.");
+        }
+    }, {
+        onSuccess: (response) => {
+            if (response.status === 200) {
+                setLocationFavState(false);
+                alert(`${post.locName}을(를) 즐겨찾기에서 삭제했습니다.`);
+            }
+        }
+    });
+
+    
+
     const showPostDetail = () => {
         navigate(`/postDetail`, { state: { postId: post.postId } });
     }
@@ -88,10 +145,27 @@ const UserPostUI = ({ post, onClick }) => {
                             </div>
                         </div>
                         <div css={S.favorites}>
-                            <button css={S.favoritesButton}>
-                                <div><AiOutlineStar /></div>
-                                <div css={S.favoritesDetail}>저장</div>
-                            </button>
+                            {(authState)
+                                ? 
+                                <>
+                                    {locationFavState ?
+                                        <>
+                                            <button css={S.placeUnSaveButton} onClick={() => { undoLocationFav.mutate() }}>
+                                                <div><AiFillStar css={S.placeUnSaveIcon} /></div>
+                                                <div css={S.placeUnSaveDetail}>저장</div>
+                                            </button>
+                                        </>
+                                        :
+                                        <>
+                                            <button css={S.placeSaveButton} onClick={() => { addLocationFav.mutate() }}>
+                                                <div><AiOutlineStar css={S.placeSaveIcon} /></div>
+                                                <div css={S.placeSaveDetail}>저장</div>
+                                            </button>
+                                        </>
+                                    }
+                                </>
+                                : <></>
+                            }
                         </div>
                     </div>
                 </div>
