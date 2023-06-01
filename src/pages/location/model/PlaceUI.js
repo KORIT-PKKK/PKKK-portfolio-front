@@ -5,7 +5,7 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import Cookies from 'js-cookie';
 import { useMutation } from 'react-query';
 import { axiosInstance } from '../../../Controller/interceptors/TokenRefresher';
-import RatingScore from './../../model/RatingScore';
+import RatingScoreUI from '../../model/RatingScoreUI';
 
 const PlaceUI = ({ locDetail }) => {
     const rtk = Cookies.get("refreshToken");
@@ -99,7 +99,7 @@ const PlaceUI = ({ locDetail }) => {
                     :
                     <>
                         <div css={S.locationDetailContainer}>
-                            <div css={S.score}><RatingScore rating={locDetail.evalScore}/></div>
+                            <div css={S.score}><RatingScoreUI rating={locDetail.evalScore}/></div>
                         </div>
                     </>
                 }

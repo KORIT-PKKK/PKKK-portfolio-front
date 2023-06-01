@@ -14,6 +14,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { deleteObject, ref } from 'firebase/storage';
 import storage from '../../../Firebase';
+import RatingScoreUI from '../../model/RatingScoreUI';
 
 const TimelineUI = ({ timeLine }) => {
     console.log(timeLine);
@@ -196,7 +197,7 @@ const TimelineUI = ({ timeLine }) => {
                 </main>
                 <div>
                     <div css={S.detail}>
-                        {timeLine.content}{timeLine.evalScore}
+                        {timeLine.content}<RatingScoreUI rating={timeLine.evalScore}/>
                     </div>
                 </div>
                 <footer>

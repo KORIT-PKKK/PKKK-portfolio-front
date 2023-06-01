@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { axiosInstance } from '../../../Controller/interceptors/TokenRefresher';
+import RatingScoreUI from '../../model/RatingScoreUI';
 
 const PostDetailUI = ({ postDetail }) => {
     const navigate = useNavigate();
@@ -205,7 +206,7 @@ const PostDetailUI = ({ postDetail }) => {
                 </main>
                 <div>
                     <div css={S.detail}>
-                        {postDetail.content}{postDetail.evalScore}
+                        {postDetail.content}<RatingScoreUI rating={postDetail.evalScore} />
                     </div>
                 </div>
             </div>
