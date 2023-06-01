@@ -6,7 +6,6 @@ import { useQuery } from 'react-query';
 import { axiosInstance } from '../../../Controller/interceptors/TokenRefresher';
 import { localURL } from '../../../config/ApiURL';
 import Cookies from 'js-cookie';
-import FollowingBoxUI from './FollowingBoxUI';
 
 const FollowingUI = () => {
     const [followingList, setFollowingList] = useState([]);
@@ -32,7 +31,11 @@ const FollowingUI = () => {
             <div css={S.container}>
                 <h1 css={S.title}>팔로우 중</h1>
                 {followingList.map(following => (
-                    <FollowingBoxUI following={following}/>
+                    <div css={S.userBox}>
+                        <div css={S.photoBox}></div>
+                        <div css={S.username}>{following.name}</div>
+                        <button css={S.stateButton}>언팔로우</button>
+                    </div>
                 )
                 )}
             </div>

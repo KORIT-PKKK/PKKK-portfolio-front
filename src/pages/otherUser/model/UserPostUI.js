@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { useMutation } from 'react-query';
 import { axiosInstance } from '../../../Controller/interceptors/TokenRefresher';
+
 const UserPostUI = ({ post, onClick }) => {
     const navigate = useNavigate();
     let imageUrls = [];
@@ -117,7 +118,7 @@ const UserPostUI = ({ post, onClick }) => {
         }
     });
 
-    
+
 
     const showPostDetail = () => {
         navigate(`/postDetail`, { state: { postId: post.postId } });
@@ -146,7 +147,7 @@ const UserPostUI = ({ post, onClick }) => {
                         </div>
                         <div css={S.favorites}>
                             {(authState)
-                                ? 
+                                ?
                                 <>
                                     {locationFavState ?
                                         <>
