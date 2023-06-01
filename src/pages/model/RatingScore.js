@@ -10,9 +10,6 @@ const RatingScore = ({ rating }) => {
 
     return (
         <div className="w-10/12 max-w-md space-y-6 rounded-lg bg-slate-50 px-3 py-6 text-slate-800 shadow-lg">
-          <header>
-            <h2 className="text-center text-xl font-bold" />
-          </header>
     
           <div className="flex justify-center">
             <div className="flex w-fit rounded-lg border-2 bg-slate-300 py-2 px-1">
