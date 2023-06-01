@@ -4,9 +4,8 @@ import * as S from './styles/PostDetailUIStyle';
 import { AiOutlineStar } from 'react-icons/ai';
 import { IoMdArrowDropleftCircle } from 'react-icons/io';
 import { IoMdArrowDroprightCircle } from 'react-icons/io';
-import { useQuery } from 'react-query';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import RatingScoreUI from '../../model/RatingScoreUI';
 
 const PostDetailUI = ({ postDetail }) => {
     const navigate = useNavigate();
@@ -74,7 +73,7 @@ const PostDetailUI = ({ postDetail }) => {
                 </main>
                 <div>
                     <div css={S.detail}>
-                        {postDetail.content}{postDetail.evalScore}
+                        {postDetail.content}<RatingScoreUI rating={postDetail.evalScore}/>
                     </div>
                 </div>
             </div>

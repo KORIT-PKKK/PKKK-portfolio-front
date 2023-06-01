@@ -10,10 +10,7 @@ import { localURL } from '../../config/ApiURL';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { axiosInstance } from '../../Controller/interceptors/TokenRefresher';
-import emptyStar from '../post/model/assets/icon_empty_star.svg';
-import fullStar from '../post/model/assets/icon_full_star.svg';
-import halfStar from '../post/model/assets/icon_half_star.svg';
-import RatingScore from '../model/RatingScore';
+import RatingScoreUI from '../model/RatingScoreUI';
 
 
 const GoogleMaps = () => {
@@ -190,7 +187,7 @@ const GoogleMaps = () => {
               <h1 css={S.title}>{selectedMarker.title}</h1>
               {(selectedMarker.evalScore === null)
                 ? <h1>아직 평점이 없어요.</h1>
-                : <h1><RatingScore rating={selectedMarker.evalScore}/></h1>}
+                : <h1><RatingScoreUI rating={selectedMarker.evalScore}/></h1>}
               {authState ? (
                 locationFavState ? (
                   <div onClick={() => undoLocationFav.mutate()} css={S.unSave}>

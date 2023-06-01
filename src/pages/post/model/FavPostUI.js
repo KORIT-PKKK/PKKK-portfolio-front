@@ -12,6 +12,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useMutation } from 'react-query';
 import { axiosInstance } from '../../../Controller/interceptors/TokenRefresher.js';
+import RatingScoreUI from '../../model/RatingScoreUI.js';
 const FavPostUI = ({ favPost }) => {
     const navigate = useNavigate();
     const rtk = Cookies.get("refreshToken");
@@ -262,7 +263,7 @@ const FavPostUI = ({ favPost }) => {
                 </main>
                 <div>
                     <div css={S.detail}>
-                        {favPost.content}{favPost.evalScore}
+                        {favPost.content}<RatingScoreUI rating={favPost.evalScore}/>
                     </div>
                 </div>
                 <footer>

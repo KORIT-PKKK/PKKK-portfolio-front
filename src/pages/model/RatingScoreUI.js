@@ -4,7 +4,7 @@ import fullStar from '../post/model/assets/icon_full_star.svg';
 import halfStar from '../post/model/assets/icon_half_star.svg';
 
 
-const RatingScore = ({ rating }) => {
+const RatingScoreUI = ({ rating }) => {
     const starCount = Math.floor(rating); 
     const isHalfOver = rating % 1 !== 0;
 
@@ -41,4 +41,4 @@ const RatingScore = ({ rating }) => {
         </div>
       );
     };
-export default RatingScore;
+export default RatingScoreUI;
