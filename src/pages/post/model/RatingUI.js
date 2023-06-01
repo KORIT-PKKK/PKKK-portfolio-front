@@ -10,19 +10,19 @@ const RatingUI = ({ onRatingChange }) => {
   const [isHalfOver, setIsHalfOver] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
-  const commentMap = {
-    0:'(0.0)',
-    0.5: '(0.5)',
-    1: '(1.0)',
-    1.5: '(1.5)',
-    2: '(2.0)',
-    2.5: '(2.5)',
-    3: '(3.0)',
-    3.5: '(3.5)',
-    4: '(4.0)',
-    4.5: '(4.5)',
-    5: '(5.0)',
-  };
+  // const commentMap = {
+  //   0:'(0.0)',
+  //   0.5: '(0.5)',
+  //   1: '(1.0)',
+  //   1.5: '(1.5)',
+  //   2: '(2.0)',
+  //   2.5: '(2.5)',
+  //   3: '(3.0)',
+  //   3.5: '(3.5)',
+  //   4: '(4.0)',
+  //   4.5: '(4.5)',
+  //   5: '(5.0)',
+  // };
 
   const handleMouseMove = (e) => {
     if (isClicked) return;
@@ -53,7 +53,7 @@ const RatingUI = ({ onRatingChange }) => {
 
   useEffect(() => {
     onRatingChange(getFinalScore());
-  }, [onRatingChange, getFinalScore()]);
+  }); //, [onRatingChange, getFinalScore()]
 
   return (
     <div className="w-10/12 max-w-md space-y-6 rounded-lg bg-slate-50 px-3 py-6 text-slate-800 shadow-lg">
@@ -70,7 +70,7 @@ const RatingUI = ({ onRatingChange }) => {
                     key={index}
                     src={isHalfOver ? fullStar : halfStar}
                     data-star={index + 1}
-                    style={{ width: '30px', height: '30px' }}
+                    style={{ width: '50px', height: '50px' }}
                     onClick={handleClick}
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
@@ -84,7 +84,7 @@ const RatingUI = ({ onRatingChange }) => {
                   key={index}
                   src={starCount > index + 1 ? fullStar : emptyStar}
                   data-star={index + 1}
-                  style={{ width: '30px', height: '30px' }}
+                  style={{ width: '50px', height: '50px' }}
                   onClick={handleClick}
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
