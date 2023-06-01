@@ -34,13 +34,37 @@ export const address = css`
     font-size: 14px;
 `;
 
-export const saveButtonBox = css`
-    border: none;
+export const placeSaveButton = css`
     background-color: white;
-    font-size: 12px;
+    border: 1px solid white;
+    font-weight: 600;
     cursor: pointer;
-`
+`;
 
-export const saveIcon = css`
-    font-size: 25px;
+export const placeUnSaveButton = css`
+    background-color: white;
+    border: 1px solid white;
+    font-weight: 600;
+    cursor: pointer;
+`;
+
+export const placeSaveIcon = css`
+    font-size: 30px;
+    fill: black;
+`;
+
+export const placeUnSaveIcon = css`
+    font-size: 30px;
+    fill: green;
+`;
+
+
+export const placeSaveDetail = css`
+    font-size: 13px;
+    color: black;
+`;
+
+export const placeUnSaveDetail = css`
+    font-size: 13px;
+    color: green;
 `;
