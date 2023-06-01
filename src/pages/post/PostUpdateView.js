@@ -54,8 +54,6 @@ const PostUpdateView = () => {
   const [files, setFiles] = useState([]);
   const fileInput = React.useRef(null);
 
-  let uploadList = [];
-
   const handleChange = (e) => {
     if (e.target.files.length > 0) {
       const fileList = Array.from(e.target.files);
@@ -117,9 +115,7 @@ const PostUpdateView = () => {
       })
     );
 
-    uploadList = [...imageUrls, ...urlList];
-
-    return uploadList;
+    return urlList;
   };
 
   useEffect(() => {
@@ -127,17 +123,18 @@ const PostUpdateView = () => {
   }, [deleteList]);
 
   const handleDeleteURL = (url) => {
-    const updateList = imageUrls.filter((i) => i !== url);
+    const trimedUrl = url.trim();
+    const updateList = imageUrls.filter((i) => i !== trimedUrl);
     setImageUrls(updateList);
     if (deleteList.length < 1){
-        setDeleteList([url]);
+        setDeleteList([trimedUrl]);
     } else {
-        setDeleteList([...deleteList, url]);
+        setDeleteList([...deleteList, trimedUrl]);
     }
   };
 
   const handleDeleteTemp = (file) => {
-    const updateList = files.filter((i) => i != file);
+    const updateList = files.filter((i) => i !== file);
     setFiles(updateList);
   };
 
@@ -229,14 +226,14 @@ const PostUpdateView = () => {
     <div>불러오는 중...</div>;
   }
 
-  const updatePost = async () => {
+  const updatePost = async (uploadUrls) => {
     const data = {
       postId: postDetail.postId,
       locId: postDetail.locId,
       postEvalId:postDetail.postEvalId,
       username: Cookies.get("username"),
       evalScore: evalScore,
-      picDatas: uploadList,
+      picDatas: uploadUrls,
       delPicDatas: deleteList,
       content: content,
     };
@@ -255,7 +252,7 @@ const PostUpdateView = () => {
   const updateSubmitHandle = async() => {
     const uploadedUrls = await handleUpload();
     console.log(uploadedUrls);
-    updatePost().then((res) => {
+    updatePost(uploadedUrls).then((res) => {
         if (res.status === 200){
             handleDelete();
             alert("게시글 수정 완료.");
