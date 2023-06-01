@@ -101,9 +101,10 @@ const PostUI = ({ post, onClick }) => {
     }
 
     const showOtherUser = () => {
-        navigate('/otherUser', { state: { userId: post.userId } });
+        if (parseInt(userId) !== parseInt(post.userId)) {
+            navigate('/otherUser', { state: { userId: post.userId } });
+        }
     }
-
     const showPlaceDetail = () => {
         navigate('/locationDetail', { state: { locId: post.locId } });
     }

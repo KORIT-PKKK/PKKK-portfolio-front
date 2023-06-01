@@ -184,11 +184,35 @@ export const favorites = css`
     height: 39px;
 `;
 
-export const favoritesButton = css`
+export const placeSaveButton = css`
     background-color: white;
     border: 1px solid white;
+    font-weight: 600;
+    cursor: pointer;
 `;
 
-export const favoritesDetail = css`
+export const placeUnSaveButton = css`
+    background-color: white;
+    border: 1px solid white;
+    font-weight: 600;
+    cursor: pointer;
+`;
+
+export const placeSaveIcon = css`
+    fill: black;
+`;
+
+export const placeUnSaveIcon = css`
+    fill: green;
+`;
+
+
+export const placeSaveDetail = css`
     font-size: 11px;
+    color: black;
+`;
+
+export const placeUnSaveDetail = css`
+    font-size: 11px;
+    color: green;
 `;
