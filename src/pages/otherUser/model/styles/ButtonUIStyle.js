@@ -10,12 +10,26 @@ export const buttonBox = css`
     margin-top: 18px;
 `;
 
-export const button = css`
-    border: 2px solid #dbdbdb;
-    border-radius: 10px;
+export const followbutton = css`
     width: 100%;
     height: 100%;
+    border: 2px solid #F3F9FE;
+    border-radius: 10px;
+    background-color: #F3F9FE;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2D8DEE;
+    cursor: pointer;
+`;
+
+export const unFollowbutton = css`
+    width: 100%;
+    height: 100%;
+    border: 2px solid #dbdbdb;
+    border-radius: 10px;
+    background-color: #dbdbdb;
     cursor: pointer;
     font-size: 15px;
     font-weight: 600;
+    color: black;
 `;

@@ -17,7 +17,7 @@ const OtherUserView = () => {
     const puId = location.state.userId;
     const [userPosts, setUserPosts] = useState([]);
     const rtk = Cookies.get("refreshToken");
-
+    const authState = rtk !== undefined;
 
     const userPostOverView = useQuery(["userPostOverView"], async () => {
 
@@ -63,7 +63,11 @@ const OtherUserView = () => {
             <LogoUI onClick={menuClickHandle} />
             <div css={S.userOutLine}>
                 <OtherUserOutLineUI userId={puId} />
-                <ButtonUI />
+                {authState
+                    ? <ButtonUI post={userPosts[0]} />
+                    :
+                    <></>
+                }
             </div>
             <div css={S.container}>
                 <div css={S.reviewContainer}>
