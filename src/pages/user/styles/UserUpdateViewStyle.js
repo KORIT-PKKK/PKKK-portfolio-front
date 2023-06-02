@@ -32,10 +32,29 @@ export const infoModifyBox = css`
 export const photoBox = css`
     width: 90px;
     height: 90px;
-    margin: 0px auto;
+    margin: auto;
     border: 1px solid #dbdbdb;
     border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+`;
+
+export const overlay = css`
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90px;
+    height: 90px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6;
+    transition: opacity 0.3s;
 `;
 
 export const inputLabel = css`

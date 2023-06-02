@@ -27,8 +27,6 @@ const PhotoCardUI = ({ url, onClick }) => {
           <BiXCircle size="75" color="red" css={S.removeBtn} onClick={onClick}/>
         </div>
       )}
-      {/* <div css={S.photoBox}>
-          </div> */}
     </div>
   );
 };
