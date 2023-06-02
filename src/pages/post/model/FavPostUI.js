@@ -67,6 +67,8 @@ const FavPostUI = ({ favPost }) => {
 
     if (favPost.picDatas && favPost.picDatas.includes(',')) {
         imageUrls = favPost.picDatas.split(',');
+    } else {
+        imageUrls = favPost.picDatas ? [favPost.picDatas] : [];
     }
 
     const getStyles = (imageUrls) => {
@@ -263,7 +265,7 @@ const FavPostUI = ({ favPost }) => {
                 </main>
                 <div>
                     <div css={S.detail}>
-                        {favPost.content}<RatingScoreUI rating={favPost.evalScore}/>
+                        {favPost.content}<RatingScoreUI rating={favPost.evalScore} />
                     </div>
                 </div>
                 <footer>

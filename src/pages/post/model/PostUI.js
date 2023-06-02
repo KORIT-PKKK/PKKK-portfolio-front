@@ -64,6 +64,8 @@ const PostUI = ({ post, onClick }) => {
 
     if (post.picDatas && post.picDatas.includes(',')) {
         imageUrls = post.picDatas.split(',');
+    } else {
+        imageUrls = post.picDatas ? [post.picDatas] : [];
     }
 
     const getStyles = (imageUrls) => {
@@ -228,6 +230,8 @@ const PostUI = ({ post, onClick }) => {
         }
     });
 
+    console.log(imageUrls);
+
     return (
         <>
             <div css={S.feed}>
@@ -292,7 +296,7 @@ const PostUI = ({ post, onClick }) => {
                 </main>
                 <div>
                     <div css={S.detail}>
-                        {post.content}<RatingScoreUI rating={post.evalScore}/>
+                        {post.content}<RatingScoreUI rating={post.evalScore} />
                     </div>
                 </div>
                 <footer>

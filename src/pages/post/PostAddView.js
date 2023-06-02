@@ -30,6 +30,7 @@ const PostAddView = () => {
 
     const [files, setFiles] = useState("");
 
+
     const handleChange = (e) => {
         if (e.target.files.length > 0) {
             const fileList = Array.from(e.target.files);
@@ -40,8 +41,8 @@ const PostAddView = () => {
 
     const handleUpload = async () => {
         if (files.length === 0) {
-            alert("업로드할 이미지를 먼저 선택해주세요.");
-            return;
+            // alert("업로드할 이미지를 먼저 선택해주세요.");
+            return [];
         }
 
         const urlList = [];
@@ -79,7 +80,7 @@ const PostAddView = () => {
                 });
             })
         );
-        
+
         return urlList;
     };
 
@@ -121,7 +122,7 @@ const PostAddView = () => {
     });
 
     const addPost = useMutation(async (data) => {
-        
+
         try {
             const response = await axiosInstance.post(`/api/post/add`, data);
             return response;
@@ -133,22 +134,26 @@ const PostAddView = () => {
             console.log(response.data.postId)
             if (response.status === 200) {
                 alert("포스트 생성 성공하였습니다.")
-                navigate(`/postDetail`, { state: { postId: response.data.postId } });
+                if (files.length < 1) {
+                    navigate("/")
+                } else {
+                    navigate(`/postDetail`, { state: { postId: response.data.postId } });
+                }
             }
         }
     });
 
-    const addPostSubmitHandle = async() => {
+    const addPostSubmitHandle = async () => {
         const uploadList = await handleUpload();
-            const data = {
-                "username": Cookies.get("username"),
-                "content": content,
-                "locId": locId,
-                "evalScore": evalScore,
-                "picDatas": uploadList
-            }
-            console.log(data);
-            addPost.mutate(data);
+        const data = {
+            "username": Cookies.get("username"),
+            "content": content,
+            "locId": locId,
+            "evalScore": evalScore,
+            "picDatas": uploadList
+        }
+        console.log(data);
+        addPost.mutate(data);
     }
 
     if (searchLocDetail.isLoading) {
@@ -209,8 +214,6 @@ const PostAddView = () => {
                     <footer>
                         <div css={S.mainTextContainer}>
                             <button css={S.mainTextButton} type="button" onClick={addPostSubmitHandle}><MdSaveAlt />등록하기</button>
-                            {/* <button css={S.mainTextButton} type="button"><BsPencilSquare />수정</button> */}
-                            {/* <button css={S.mainTextButton} type="button"><AiOutlineDelete />삭제</button> */}
                         </div>
                     </footer>
                 </div>

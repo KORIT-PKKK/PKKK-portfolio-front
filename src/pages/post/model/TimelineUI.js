@@ -51,6 +51,8 @@ const TimelineUI = ({ timeLine }) => {
 
     if (timeLine.picDatas && timeLine.picDatas.includes(',')) {
         imageUrls = timeLine.picDatas.split(',');
+    } else {
+        imageUrls = timeLine.picDatas ? [timeLine.picDatas] : [];
     }
 
     const getStyles = (imageUrls) => {
@@ -123,8 +125,8 @@ const TimelineUI = ({ timeLine }) => {
         }
     });
 
-    function postDelete(postId){
-        deletePost(postId).then(()=>{
+    function postDelete(postId) {
+        deletePost(postId).then(() => {
             deleteFiles();
             alert("게시글이 삭제되었습니다.");
             navigate("/timeLine")
@@ -197,7 +199,7 @@ const TimelineUI = ({ timeLine }) => {
                 </main>
                 <div>
                     <div css={S.detail}>
-                        {timeLine.content}<RatingScoreUI rating={timeLine.evalScore}/>
+                        {timeLine.content}<RatingScoreUI rating={timeLine.evalScore} />
                     </div>
                 </div>
                 <footer>
