@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState } from "react";
-import { BiXCircle } from "react-icons/bi";
+import { AiOutlinePicture } from 'react-icons/ai';
 import * as S from "../styles/UserUpdateViewStyle"
 
 const CircleAvatar = ({ url }) => {
@@ -22,7 +22,7 @@ const CircleAvatar = ({ url }) => {
         <img src={url} alt="" css={S.photoBox} />
         {hovered && (
           <div css={S.overlay} >
-            <BiXCircle size="75" color="red"/>
+            <AiOutlinePicture size="75" color="red"/>
           </div>
         )}
       </div>

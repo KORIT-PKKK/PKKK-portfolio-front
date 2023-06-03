@@ -18,10 +18,17 @@ export const userInfoLeft = css`
 
 export const profileBox = css`
     position: relative;
+    overflow-y: hidden;
     border: 1px solid #dbdbdb;
     border-radius: 50%;
     width: 64px;
     height: 64px;
+    cursor: pointer;
+`;
+
+export const profilePhoto = css`
+    width: 100%;
+    height: 100%;
 `;
 
 export const usernameBox = css`

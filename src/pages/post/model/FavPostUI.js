@@ -219,7 +219,9 @@ const FavPostUI = ({ favPost }) => {
                 <header css={S.header}>
                     <button css={S.profile} onClick={showOtherUser}>
                         <div css={S.profilePictureBox}>
-                            <div css={S.profilePicture}></div>
+                            <div css={S.profilePicture}>
+                                <img src={favPost.imageUrl} alt="" css={S.profilePhoto}/>
+                            </div>
                         </div>
                         <div>
                             <div css={S.profileID}>{favPost.name}</div>

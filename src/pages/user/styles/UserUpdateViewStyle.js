@@ -43,14 +43,13 @@ export const photoBox = css`
 `;
 
 export const overlay = css`
-    display: flex;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 127px;
     width: 90px;
     height: 90px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: green;
     border-radius: 50%;
+    display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0.6;

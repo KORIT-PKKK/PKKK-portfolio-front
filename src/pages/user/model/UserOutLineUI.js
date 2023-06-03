@@ -33,13 +33,15 @@ const UserOutLineUI = ({ currentUserId }) => {
     });
 
     if (userOutLine.isLoading) {
-        <div>...불러오는중</div>
+        return <div>...불러오는중</div>
     }
 
     return (
         <>
             <div css={S.userInfoBox}>
-                <div css={S.photoBox}></div>
+                <div css={S.photoBox}>
+                    <img src={userOutline.imageUrl} alt="" css={S.profilePhoto}/>
+                </div>
                 <div css={S.userInfo}>
                     <div css={S.userName}>{userOutline.name}</div>
                     <div css={S.userFunctionBox}>

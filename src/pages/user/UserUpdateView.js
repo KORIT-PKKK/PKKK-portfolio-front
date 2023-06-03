@@ -159,6 +159,7 @@ const UserUpdateView = () => {
         alert("Info update failed");
       }
       setFile("");
+      navigate("/");
   };
 
   const handleNameChange = (e) => {

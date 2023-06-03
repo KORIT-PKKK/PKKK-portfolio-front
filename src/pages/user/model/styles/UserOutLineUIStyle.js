@@ -10,6 +10,12 @@ export const photoBox = css`
     height: 64px;
     border: 1px solid #dbdbdb;
     border-radius: 50%;
+    overflow-y: hidden;
+`;
+
+export const profilePhoto = css`
+    width: 100%;
+    height: 100%;
 `;
 
 export const userInfo = css`

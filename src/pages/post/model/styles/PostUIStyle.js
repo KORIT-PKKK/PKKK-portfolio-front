@@ -38,12 +38,19 @@ export const profilePictureBox = css`
     margin: 0px 8px 0px 0px;
 `;
 
+
 export const profilePicture = css` 
     text-align: left;
     border: 2px solid #dbdbdb;
     border-radius: 50%;
     width: 38px;
     height: 38px;
+    overflow-y: hidden;
+`;
+
+export const profilePhoto = css`
+    width: 100%;
+    height: 100%;
 `;
 
 export const profileID = css`

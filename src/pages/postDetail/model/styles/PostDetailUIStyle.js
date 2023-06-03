@@ -43,6 +43,12 @@ export const profilePicture = css`
     border-radius: 50%;
     width: 38px;
     height: 38px;
+    overflow-y: hidden;
+`;
+
+export const profilePhoto = css`
+    width: 100%;
+    height: 100%;
 `;
 
 export const profileID = css`

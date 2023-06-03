@@ -129,13 +129,16 @@ const PostDetailUI = ({ postDetail }) => {
         }
     }
 
+
     return (
         <>
             <div css={S.feed}>
                 <header css={S.header}>
                     <button css={S.profile} onClick={showOtherUser}>
                         <div css={S.profilePictureBox}>
-                            <div css={S.profilePicture}></div>
+                            <div css={S.profilePicture}>
+                                <img src={postDetail.imageUrl} alt="" css={S.profilePhoto}/>
+                            </div>
                         </div>
                         <div>
                             <div css={S.profileID}>{postDetail.name}</div>

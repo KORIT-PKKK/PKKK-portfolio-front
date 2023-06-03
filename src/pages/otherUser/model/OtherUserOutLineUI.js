@@ -26,7 +26,6 @@ const OtherUserOutLineUI = ({ onClick, userId }) => {
             },
         };
         const response = await axios.get(`${localURL}/api/user/info`, params)
-        console.log(response.data[0]);
         return response;
     }, {
         onSuccess: (response) => {
@@ -38,13 +37,14 @@ const OtherUserOutLineUI = ({ onClick, userId }) => {
         return <div>...불러오는중</div>
     }
 
-
     return (
         <>
             <div css={S.userInfoBox}>
                 <div css={S.userInfo}>
                     <div css={S.userInfoLeft}>
-                        <div css={S.profileBox}></div>
+                        <div css={S.profileBox}>
+                            <img src={userOutLine.imageUrl} alt="" css={S.profilePhoto}/>
+                        </div>
                     </div>
                     <div>
                         <div css={S.usernameBox}><div css={S.username}>{userOutline.name}</div> <button css={S.shareButton}><GrShare /></button></div>

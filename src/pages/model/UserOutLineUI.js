@@ -26,7 +26,6 @@ const UserOutLineUI = ({ currentUserId, onClick }) => {
             },
         };
         const response = await axios.get(`${localURL}/api/user/info`, params)
-        console.log(response.data[0]);
         return response;
     }, {
         onSuccess: (response) => {
@@ -43,7 +42,9 @@ const UserOutLineUI = ({ currentUserId, onClick }) => {
             <div css={S.userInfoBox}>
                 <div css={S.userInfo}>
                     <div css={S.userInfoLeft}>
-                        <div css={S.profileBox} onClick={() => onClick('/userUpdate')}></div>
+                        <div css={S.profileBox} onClick={() => onClick('/userUpdate')}>
+                            <img src={userOutline.imageUrl} alt="" css={S.profilePhoto}/>
+                        </div>
                     </div>
                     <div>
                         <div css={S.usernameBox} onClick={() => onClick('/userUpdate')}><div css={S.username}>{userOutline.name}</div> <button css={S.shareButton}><GrShare /></button></div>
