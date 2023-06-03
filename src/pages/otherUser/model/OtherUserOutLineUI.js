@@ -7,7 +7,7 @@ import { useQuery } from 'react-query';
 import { localURL } from '../../../config/ApiURL';
 
 
-const OtherUserOutLineUI = ({ onClick, userId }) => {
+const OtherUserOutLineUI = ({ userId }) => {
     const [userOutline, setUserOutline] = useState({
         followeeCount: 0,
         followerCount: 0,
@@ -37,17 +37,19 @@ const OtherUserOutLineUI = ({ onClick, userId }) => {
         return <div>...불러오는중</div>
     }
 
+    console.log(userOutLine.imageUrl)
+
     return (
         <>
             <div css={S.userInfoBox}>
                 <div css={S.userInfo}>
                     <div css={S.userInfoLeft}>
                         <div css={S.profileBox}>
-                            <img src={userOutLine.imageUrl} alt="" css={S.profilePhoto}/>
+                            <img src={userOutline.imageUrl} alt="" css={S.profilePhoto}/>
                         </div>
                     </div>
                     <div>
-                        <div css={S.usernameBox}><div css={S.username}>{userOutline.name}</div> <button css={S.shareButton}><GrShare /></button></div>
+                        <div css={S.usernameBox}><div>{userOutline.name}</div> <button css={S.shareButton}><GrShare /></button></div>
                         <div css={S.Buttons}>
                             <button css={S.reviewButton}>리뷰 <em css={S.count}>{userOutline.postCount}</em></button>
                             <button css={S.pictureButton}>사진 <em css={S.count}>{userOutline.picCount}</em></button>

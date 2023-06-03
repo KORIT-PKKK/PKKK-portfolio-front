@@ -62,7 +62,7 @@ const OtherUserView = () => {
         <>
             <LogoUI onClick={menuClickHandle} />
             <div css={S.userOutLine}>
-                <OtherUserOutLineUI userId={puId} />
+                <OtherUserOutLineUI userId={puId}/>
                 {authState
                     ? <ButtonUI post={userPosts[0]} />
                     :

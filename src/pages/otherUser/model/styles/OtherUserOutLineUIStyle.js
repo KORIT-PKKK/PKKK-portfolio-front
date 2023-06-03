@@ -39,9 +39,6 @@ export const usernameBox = css`
     font-weight: 600;
 `;
 
-export const username = css`
-`;
-
 export const shareButton = css`
     border: none;
     background-color: white;
