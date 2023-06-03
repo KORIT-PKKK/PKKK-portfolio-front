@@ -195,12 +195,15 @@ const PostUpdateView = () => {
         setEvalScore(post.evalScore);
         setContent(post.content);
         setContentCount(post.content.length);
-        if (post.picDatas && post.picDatas.includes(",")) {
-          setImageUrls(post.picDatas.split(","));
+        if (post.picDatas && post.picDatas.includes(',')) {
+          setImageUrls(post.picDatas.split(','));
+        } else {
+          setImageUrls(post.picDatas ? [post.picDatas] : []);
         }
       },
     }
   );
+  
 
   const handleRatingChange = (score) => {
     if (score < 0) {

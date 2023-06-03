@@ -6,6 +6,7 @@ import { BiXCircle } from "react-icons/bi";
 
 const PhotoCardUI = ({ url, onClick }) => {
   const [hovered, setHovered] = useState(false);
+  const [removed, setRemoved] = useState(false);
 
   const handleMouseEnter = () => {
     setHovered(true);
@@ -15,19 +16,33 @@ const PhotoCardUI = ({ url, onClick }) => {
     setHovered(false);
   };
 
+  const handleRemoveClick = () => {
+    setRemoved(true);
+    onClick();
+  };
+
   return (
-    <div
-      css={S.photoCardContainer}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <img src={url} alt="" css={S.photo} />
-      {hovered && (
-        <div css={S.overlay} >
-          <BiXCircle size="75" color="red" css={S.removeBtn} onClick={onClick}/>
+    <>
+      {!removed && (
+        <div
+          css={S.photoCardContainer}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <img src={url} alt="" css={S.photo} />
+          {hovered && (
+            <div css={S.overlay}>
+              <BiXCircle
+                size="75"
+                color="red"
+                css={S.removeBtn}
+                onClick={handleRemoveClick}
+              />
+            </div>
+          )}
         </div>
       )}
-    </div>
+    </>
   );
 };
 
