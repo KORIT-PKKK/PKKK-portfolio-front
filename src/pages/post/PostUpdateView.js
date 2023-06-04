@@ -22,7 +22,11 @@ import storage from "../../Firebase";
 import { axiosInstance } from "../../Controller/interceptors/TokenRefresher";
 import EmptyBox from "./model/EmptyBox";
 import { Rating } from "@mui/material";
-import HoverRating from "./model/ReactRating";
+import Box from '@mui/material/Box';
+import StarIcon from '@mui/icons-material/Star';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { yellow } from "@mui/material/colors";
+
 
 const PostUpdateView = () => {
   const navigate = useNavigate();
@@ -54,7 +58,8 @@ const PostUpdateView = () => {
   const [percentages, setPercentages] = useState([]);
   const [deleteList, setDeleteList] = useState([]);
   const [files, setFiles] = useState([]);
-  const [value, setValue] = React.useState(2); 
+  const [value, setValue] = useState(0.0); 
+  const [hover, setHover] = useState(-1);
   const fileInput = React.useRef(null);
 
   const handleChange = (e) => {
@@ -207,6 +212,10 @@ const PostUpdateView = () => {
       },
     }
   );
+
+  useEffect(() => {
+    console.log(postDetail);
+  }, [postDetail])
   
 
   const handleRatingChange = (score) => {
@@ -239,14 +248,13 @@ const PostUpdateView = () => {
       locId: postDetail.locId,
       postEvalId:postDetail.postEvalId,
       username: Cookies.get("username"),
-      evalScore: evalScore,
+      evalScore: value,
       picDatas: uploadUrls,
       delPicDatas: deleteList,
       content: content,
     };
 
-    console.log(`delList : ${data.delPicDatas}`);
-    console.log(`uploadList : ${data.picDatas}`);
+    console.log(`data : ${data.evalScore}`);
 
     try {
       const response = await axiosInstance.put(`/api/post/update`, data);
@@ -276,6 +284,53 @@ const PostUpdateView = () => {
     navigate("/");
   };
 
+  const labels = {
+    0.5: 'Useless',
+    1: 'Useless+',
+    1.5: 'Poor',
+    2: 'Poor+',
+    2.5: 'Ok',
+    3: 'Ok+',
+    3.5: 'Good',
+    4: 'Good+',
+    4.5: 'Excellent',
+    5: 'Excellent+',
+  };
+  
+  function getLabelText(value) {
+    return `${value} Star${value !== 1 ? 's' : ''}, ${labels[value]}`;
+  }
+
+  function HoverRating() {
+    return (
+      <Box
+        sx={{
+          width: 200,
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        <Rating
+          name="hover-feedback"
+          value={value}
+          precision={0.5}
+          getLabelText={getLabelText}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+            console.log(newValue);
+          }}
+          onChangeActive={(event, newHover) => {
+            setHover(newHover);
+          }}
+          emptyIcon={<StarIcon style={{ opacity: 0.25 }} fontSize="inherit" color="yellow"/>}
+          size="large"
+        />
+        {value !== null && (
+          <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
+        )}
+      </Box>
+    );
+  }
   
 
   return (
@@ -309,7 +364,7 @@ const PostUpdateView = () => {
             <div css={S.mainContainer}>
               <div css={S.mainStarCheck} />
               <RatingUI onRatingChange={handleRatingChange} />
-              <HoverRating defalutValue={value}/>
+              <HoverRating defalutValue={value} hover={hover}/>
               <div css={S.starScore}></div>
             </div>
             {
