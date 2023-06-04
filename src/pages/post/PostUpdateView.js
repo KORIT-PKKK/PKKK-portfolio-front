@@ -21,6 +21,8 @@ import {
 import storage from "../../Firebase";
 import { axiosInstance } from "../../Controller/interceptors/TokenRefresher";
 import EmptyBox from "./model/EmptyBox";
+import { Rating } from "@mui/material";
+import HoverRating from "./model/ReactRating";
 
 const PostUpdateView = () => {
   const navigate = useNavigate();
@@ -46,12 +48,13 @@ const PostUpdateView = () => {
   });
   const [content, setContent] = useState("");
   const [contentCount, setContentCount] = useState(0);
-  const [evalScore, setEvalScore] = useState(0);
+  const [evalScore, setEvalScore] = useState(0.0);
   const [errorMessage, setErrorMessage] = useState("");
   const [imageUrls, setImageUrls] = useState([]);
   const [percentages, setPercentages] = useState([]);
   const [deleteList, setDeleteList] = useState([]);
   const [files, setFiles] = useState([]);
+  const [value, setValue] = React.useState(2); 
   const fileInput = React.useRef(null);
 
   const handleChange = (e) => {
@@ -193,6 +196,7 @@ const PostUpdateView = () => {
         const post = response.data[0];
         setPostDetail(post);
         setEvalScore(post.evalScore);
+        setValue(post.evalScore);
         setContent(post.content);
         setContentCount(post.content.length);
         if (post.picDatas && post.picDatas.includes(',')) {
@@ -272,6 +276,8 @@ const PostUpdateView = () => {
     navigate("/");
   };
 
+  
+
   return (
     <>
       <div>
@@ -303,6 +309,7 @@ const PostUpdateView = () => {
             <div css={S.mainContainer}>
               <div css={S.mainStarCheck} />
               <RatingUI onRatingChange={handleRatingChange} />
+              <HoverRating defalutValue={value}/>
               <div css={S.starScore}></div>
             </div>
             {
