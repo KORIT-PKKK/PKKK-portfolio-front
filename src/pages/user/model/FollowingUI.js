@@ -1,10 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import * as S from './styles/FollowingUIStyle';
 import React, { useState } from 'react';
-import { BiUser } from 'react-icons/bi';
 import { useQuery } from 'react-query';
 import { axiosInstance } from '../../../Controller/interceptors/TokenRefresher';
-import { localURL } from '../../../config/ApiURL';
 import Cookies from 'js-cookie';
 import FollowingBoxUI from './FollowingBoxUI';
 
@@ -32,7 +30,7 @@ const FollowingUI = () => {
             <div css={S.container}>
                 <h1 css={S.title}>팔로우 중</h1>
                 {followingList.map(following => (
-                    <FollowingBoxUI following={following}/>
+                    <FollowingBoxUI following={following} />
                 )
                 )}
             </div>

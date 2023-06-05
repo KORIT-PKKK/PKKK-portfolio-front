@@ -6,8 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import jwtDecode from 'jwt-decode';
 import { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
-import axios from 'axios';
 import { axiosInstance, tokenRefresher } from '../../Controller/interceptors/TokenRefresher';
 import UserOutLineUI from './model/UserOutLineUI';
 
@@ -36,7 +34,7 @@ const UserSettingView = () => {
         };
 
         fetchUserId();
-    }, []);
+    }, [rtk]);
 
     const signOut = async () => {
         const accessToken = Cookies.get("accessToken");
@@ -46,7 +44,7 @@ const UserSettingView = () => {
             "refreshToken": rtk
         }
         try {
-            const response = await axiosInstance.post("/api/auth/signout", JSON.stringify(data));
+            await axiosInstance.post("/api/auth/signout", JSON.stringify(data));
             Cookies.remove("accessToken", { path: '/' });
             Cookies.remove("refreshToken", { path: '/' });
             Cookies.remove("username", { path: '/' });

@@ -20,7 +20,7 @@ const FollowView = () => {
     useEffect(() => {
         const currentPath = window.location.pathname;
         setSelectPath(currentPath);
-    }, []);
+    }, [setSelectPath]);
 
 
     return (

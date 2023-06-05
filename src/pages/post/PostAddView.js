@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import * as S from './styles/PostAddViewStyle';
 import { MdSaveAlt } from 'react-icons/md';
 import LogoUI from '../model/LogoUI';
@@ -10,7 +10,6 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 import { localURL } from '../../config/ApiURL';
 import { v4 as uuidv4 } from 'uuid'
-import { useEffect } from 'react';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 import storage from '../../Firebase'
 import { axiosInstance } from '../../Controller/interceptors/TokenRefresher';
@@ -41,7 +40,6 @@ const PostAddView = () => {
 
     const handleUpload = async () => {
         if (files.length === 0) {
-            // alert("업로드할 이미지를 먼저 선택해주세요.");
             return [];
         }
 
@@ -159,8 +157,7 @@ const PostAddView = () => {
     if (searchLocDetail.isLoading) {
         <div>불러오는 중....</div>
     }
-    // https://firebasestorage.googleapis.com/v0/b/portfolio-prj-ac487.appspot.com/o/files%2F9f89ef49-6a76-47e8-9b79-320ed0c69ef1?alt=media&token=32e5c26a-6e1c-44ed-b354-f16b133f696e
-    // https://firebasestorage.googleapis.com/v0/b/portfolio-prj-ac487.appspot.com/o/files%2F1333a180-2ff8-4a62-9cd7-91736403ac73?alt=media&token=22f96611-bd2e-4ab5-a6a9-786ed1f62e6e
+
     return (
         <>
             <div>

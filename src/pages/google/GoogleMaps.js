@@ -113,32 +113,6 @@ const GoogleMaps = () => {
     return <div>불러오는 중...</div>
   }
 
-  // const ratingHandler = (score) => {
-  //   return (
-  //     <div className="flex justify-center">
-  //     <div
-  //       className={`flex w-fit rounded-lg border-2 bg-slate-300 py-2 px-1  'border-yellow-400'
-  //         `}
-  //     >
-  //       {Array(5)
-  //         .fill(0)
-  //         .map((_, index) => {
-  //           return (
-  //             <img
-  //               key={index}
-  //               src={score > index + 1 ? fullStar : emptyStar}
-  //               data-star={index + 1}
-  //               style={{ width: '30px', height: '30px' }}
-  //               alt="star_image"
-  //             />
-  //           );
-  //         })}
-  //     </div>
-  //   </div>
-  //   );
-  // }
-
-
   return isLoaded ? (
     <>
       <GoogleMap
@@ -187,7 +161,7 @@ const GoogleMaps = () => {
               <h1 css={S.title}>{selectedMarker.title}</h1>
               {(selectedMarker.evalScore === null)
                 ? <h1>아직 평점이 없어요.</h1>
-                : <h1><RatingScoreUI rating={selectedMarker.evalScore}/></h1>}
+                : <h1><RatingScoreUI rating={selectedMarker.evalScore} /></h1>}
               {authState ? (
                 locationFavState ? (
                   <div onClick={() => undoLocationFav.mutate()} css={S.unSave}>

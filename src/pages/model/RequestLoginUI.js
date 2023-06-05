@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import * as S from './styles/RequestLoginUIStyle';
-import { MdKeyboardArrowRight } from 'react-icons/md';
 
 const RequestLoginUI = ({ onClick }) => {
     return (

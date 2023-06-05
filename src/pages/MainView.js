@@ -11,12 +11,11 @@ import Cookies from 'js-cookie';
 import RequestLoginUI from './model/RequestLoginUI';
 import { useEffect, useState } from 'react';
 import FavView from './post/FavView';
-import { pathState } from '../store/atoms/path/pathAtom';
 import { useRecoilState } from 'recoil';
-import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import { axiosInstance, tokenRefresher } from '../Controller/interceptors/TokenRefresher';
 import GoogleMaps from './google/GoogleMaps';
+import { pathState } from '../store/atoms/path/pathAtom';
 
 
 const MainView = () => {
@@ -32,7 +31,7 @@ const MainView = () => {
     useEffect(() => {
         const currentPath = window.location.pathname;
         setSelectPath(currentPath);
-    }, []);
+    }, [setSelectPath]);
 
     const menuClickHandle = (path) => {
         if (!authState && authRequiredPath.some(authPath => path.startsWith(authPath))) {
@@ -91,7 +90,7 @@ const MainView = () => {
         };
 
         fetchUserId();
-    }, []);
+    }, [rtk]);
 
     useEffect(() => {
         const stateChange = async () => {

@@ -17,7 +17,6 @@ const FavPostUI = ({ favPost }) => {
     const navigate = useNavigate();
     const rtk = Cookies.get("refreshToken");
     const userId = Cookies.get("userId");
-    const [postFavState, setPostFavState] = useState(false);
     const [locationFavState, setLocationFavState] = useState(false);
     const [subState, setSubState] = useState(false);
     let imageUrls = [];
@@ -25,7 +24,6 @@ const FavPostUI = ({ favPost }) => {
 
     useEffect(() => {
         const userLocFavId = favPost.userLocFavId;
-        const userPostFavId = favPost.userPostFavId;
         const userSubId = favPost.userSubId;
 
         if (userLocFavId === null) {
@@ -34,18 +32,12 @@ const FavPostUI = ({ favPost }) => {
             setLocationFavState(true);
         }
 
-        if (userPostFavId === null) {
-            setPostFavState(false);
-        } else {
-            setPostFavState(true);
-        }
-
         if (userSubId === null) {
             setSubState(false);
         } else {
             setSubState(true);
         }
-    }, [favPost.userLocFavId, favPost.userPostFavId, favPost.userSubId]);
+    }, [favPost.userLocFavId, favPost.userSubId]);
 
     let now = new Date();
     let favPostDate = new Date(favPost.updateAt);
@@ -127,7 +119,6 @@ const FavPostUI = ({ favPost }) => {
     }, {
         onSuccess: (response) => {
             if (response.status === 200) {
-                setPostFavState(false);
                 alert(`즐겨찾기에서 삭제했습니다.`);
             }
         }
@@ -220,7 +211,7 @@ const FavPostUI = ({ favPost }) => {
                     <button css={S.profile} onClick={showOtherUser}>
                         <div css={S.profilePictureBox}>
                             <div css={S.profilePicture}>
-                                <img src={favPost.imageUrl} alt="" css={S.profilePhoto}/>
+                                <img src={favPost.imageUrl} alt="" css={S.profilePhoto} />
                             </div>
                         </div>
                         <div>

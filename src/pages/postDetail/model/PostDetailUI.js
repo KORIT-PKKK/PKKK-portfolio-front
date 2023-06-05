@@ -4,8 +4,7 @@ import * as S from './styles/PostDetailUIStyle';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { IoMdArrowDropleftCircle } from 'react-icons/io';
 import { IoMdArrowDroprightCircle } from 'react-icons/io';
-import { useMutation, useQuery } from 'react-query';
-import axios from 'axios';
+import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { axiosInstance } from '../../../Controller/interceptors/TokenRefresher';
@@ -137,7 +136,7 @@ const PostDetailUI = ({ postDetail }) => {
                     <button css={S.profile} onClick={showOtherUser}>
                         <div css={S.profilePictureBox}>
                             <div css={S.profilePicture}>
-                                <img src={postDetail.imageUrl} alt="" css={S.profilePhoto}/>
+                                <img src={postDetail.imageUrl} alt="" css={S.profilePhoto} />
                             </div>
                         </div>
                         <div>

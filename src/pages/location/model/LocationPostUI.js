@@ -181,7 +181,7 @@ const PostDetailUI = ({ locationPost }) => {
                     <button css={S.profile} onClick={showOtherUser}>
                         <div css={S.profilePictureBox}>
                             <div css={S.profilePicture}>
-                                <img src={locationPost.imageUrl} alt="" css={S.profilePhoto}/>
+                                <img src={locationPost.imageUrl} alt="" css={S.profilePhoto} />
                             </div>
                         </div>
                         <div>
@@ -233,7 +233,7 @@ const PostDetailUI = ({ locationPost }) => {
                         {imageUrls.map((url, index) => (
                             index < 3 ?
                                 <div key={index} css={getIndexCss(index)}>
-                                    <img src={url} css={S.responsiveImage} />
+                                    <img src={url} alt="" css={S.responsiveImage} />
                                 </div> : null
                         ))}
                     </div>

@@ -3,7 +3,6 @@ import FavPostUI from './model/FavPostUI';
 import Cookies from 'js-cookie';
 import { useQuery } from 'react-query';
 import { axiosInstance } from '../../Controller/interceptors/TokenRefresher';
-import { localURL } from '../../config/ApiURL';
 
 const FavPostView = () => {
     const [favPostList, setFavPostList] = useState([]);

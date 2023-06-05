@@ -1,13 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import Cookies from "js-cookie";
 import * as S from "./styles/UserUpdateViewStyle";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BiLeftArrow } from "react-icons/bi";
-import { useMutation, useQuery } from "react-query";
+import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../Controller/interceptors/TokenRefresher";
 import {
-  deleteObject,
   getDownloadURL,
   ref,
   uploadBytesResumable,
@@ -17,11 +16,6 @@ import CircleAvatar from "./model/CircleAvatar";
 
 const UserUpdateView = () => {
   const navigate = useNavigate();
-  const [userUpdate, setUserUpdate] = useState({
-    name: "",
-    imageUrl: "",
-    introduce: "",
-  });
   const [nicknameLength, setNicknameLength] = useState(0);
   const [introduceLength, setIntroduceLength] = useState(0);
   const [updateName, setUpdateName] = useState("");
@@ -68,32 +62,6 @@ const UserUpdateView = () => {
     return url;
   };
 
-  const handleDelete = async () => {
-    const storageRef = ref(storage, `files/${Cookies.get("username")}`);
-
-    if (!storageRef) {
-      return;
-    }
-
-    try {
-      await deleteObject(storageRef);
-      console.log("Image deleted.");
-      return;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUserUpdate({ ...userUpdate, [name]: value });
-    if (name === "name") {
-      setNicknameLength(value.length);
-    } else if (name === "introduce") {
-      setIntroduceLength(value.length);
-    }
-  };
-
   const searchUserInfo = useQuery(
     ["searchUserInfo"],
     async () => {
@@ -122,7 +90,6 @@ const UserUpdateView = () => {
         setUpdateIntro(userData.introduce);
         setProfileImage(userData.imageUrl);
         console.log(`current image url : ${userData.imageUrl}`)
-        setUserUpdate(userData);
         setNicknameLength(userData.name.length);
         setIntroduceLength(userData.introduce.length);
       },

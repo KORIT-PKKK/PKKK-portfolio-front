@@ -6,8 +6,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { localURL } from "../../config/ApiURL";
-import { useMutation, useQuery } from "react-query";
-import RatingUI from "./model/RatingUI";
+import { useQuery } from "react-query";
 import { BiLeftArrow } from "react-icons/bi";
 import { BsPencilSquare } from "react-icons/bs";
 import PhotoCardUI from "./model/PhotoCardUI";
@@ -24,8 +23,6 @@ import EmptyBox from "./model/EmptyBox";
 import { Rating } from "@mui/material";
 import Box from '@mui/material/Box';
 import StarIcon from '@mui/icons-material/Star';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { yellow } from "@mui/material/colors";
 
 
 const PostUpdateView = () => {
@@ -52,7 +49,6 @@ const PostUpdateView = () => {
   });
   const [content, setContent] = useState("");
   const [contentCount, setContentCount] = useState(0);
-  const [evalScore, setEvalScore] = useState(0.0);
   const [errorMessage, setErrorMessage] = useState("");
   const [imageUrls, setImageUrls] = useState([]);
   const [percentages, setPercentages] = useState([]);
@@ -200,7 +196,6 @@ const PostUpdateView = () => {
       onSuccess: (response) => {
         const post = response.data[0];
         setPostDetail(post);
-        setEvalScore(post.evalScore);
         setValue(post.evalScore);
         setContent(post.content);
         setContentCount(post.content.length);
@@ -218,13 +213,6 @@ const PostUpdateView = () => {
   }, [postDetail])
 
 
-  const handleRatingChange = (score) => {
-    if (score < 0) {
-      setEvalScore(0);
-    } else {
-      setEvalScore(score);
-    }
-  };
 
   const contentChangeHandle = (e) => {
     const inputValue = e.target.value;
@@ -271,11 +259,12 @@ const PostUpdateView = () => {
       if (res.status === 200) {
         handleDelete();
         alert("게시글 수정 완료.");
+        navigate("/");
+        window.location.reload();
       }
     })
     setFiles([]);
-    navigate("/");
-    window.location.reload();
+
   };
 
   const addBtnClick = () => {

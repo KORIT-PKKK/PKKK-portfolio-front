@@ -183,7 +183,7 @@ const UserPostUI = ({ post, onClick }) => {
                 </main>
                 <div>
                     <div css={S.detail}>
-                        {post.content}<RatingScoreUI rating={post.evalScore}/>
+                        {post.content}<RatingScoreUI rating={post.evalScore} />
                     </div>
                 </div>
             </div>

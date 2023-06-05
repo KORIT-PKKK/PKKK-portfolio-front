@@ -2,7 +2,6 @@
 import React from 'react';
 import * as S from './styles/TimelineUIStyle';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import { BsTrash } from 'react-icons/bs';
 import { SlArrowRight } from 'react-icons/sl';
 import { useState } from 'react';
 import { useMutation } from 'react-query';
@@ -192,7 +191,7 @@ const TimelineUI = ({ timeLine }) => {
                         {imageUrls.map((url, index) => (
                             index < 3 ?
                                 <div key={index} css={getIndexCss(index)}>
-                                    <img src={url} css={S.responsiveImage} />
+                                    <img src={url} alt='' css={S.responsiveImage} />
                                 </div> : null
                         ))}
                     </div>

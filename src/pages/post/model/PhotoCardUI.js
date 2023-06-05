@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 /** @jsxImportSource @emotion/react */
 import * as S from "./styles/PhotoCardUIStyle";
-import { GiCancel } from "react-icons/gi";
 import { BiXCircle } from "react-icons/bi";
 
 const PhotoCardUI = ({ url, onClick }) => {

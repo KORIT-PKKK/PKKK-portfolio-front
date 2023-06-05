@@ -5,7 +5,6 @@ import RequestLoginUI from './model/RequestLoginUI';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { axiosInstance } from '../../Controller/interceptors/TokenRefresher';
-import { localURL } from '../../config/ApiURL';
 
 
 const TimelineView = () => {

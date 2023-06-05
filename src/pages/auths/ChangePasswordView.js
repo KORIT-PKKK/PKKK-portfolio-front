@@ -33,6 +33,10 @@ const ChangePasswordView = () => {
         }
     })
 
+    const homeClickHandle = () => {
+        navigate("/");
+    }
+
     const changePasswordClickHandle = () => {
         const { oldPassword, newPassword } = changePassword;
         if (oldPassword === newPassword) {
@@ -63,7 +67,7 @@ const ChangePasswordView = () => {
                 <button css={S.joinButton} onClick={changePasswordClickHandle}>비밀번호 변경하기</button>
             </div>
             <div css={S.footer}>
-                <div css={S.componyIcon}>PKKK플레이스</div>
+                <div css={S.componyIcon} onClick={homeClickHandle}>PKKK플레이스</div>
             </div>
         </>
     );
