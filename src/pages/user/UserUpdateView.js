@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import Cookies from "js-cookie";
 import * as S from "./styles/UserUpdateViewStyle";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiLeftArrow } from "react-icons/bi";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
@@ -144,6 +144,14 @@ const UserUpdateView = () => {
     fileInput.current.click();
   };
 
+  useEffect(() => {
+    setNicknameLength(updateName.length);
+  }, [updateName]);
+
+  useEffect(() => {
+    setIntroduceLength(updateIntro.length);
+  }, [updateIntro]);
+
   if (searchUserInfo.isLoading) {
     <div>불러오는 중...</div>;
   }
@@ -177,7 +185,7 @@ const UserUpdateView = () => {
         value={updateName}
         onChange={handleNameChange}
         minLength={2}
-        maxLength={20}
+        maxLength={19}
       />
       <div css={S.nickNameState}>
         <div>닉네임을 입력해주세요!</div>
@@ -191,7 +199,7 @@ const UserUpdateView = () => {
         placeholder="예) 분위기 있는 카페 찾아다녀요~"
         value={updateIntro}
         onChange={handleIntroChange}
-        maxLength={150}
+        maxLength={149}
       />
       <div css={S.introduceState}>{introduceLength}/150</div>
       <div css={S.saveBox}>

@@ -8,9 +8,9 @@ const LogoUI = ({ onClick }) => {
     return (
         <>
             <div css={S.logoBox}>
-                <div>
-                    <button css={S.logo} onClick={() => onClick('/')}><HiHome /></button>
-                    <button css={S.pageName} onClick={() => onClick('/')}>PKKK플레이스</button>
+                <div css={S.logoButtons} onClick={() => onClick('/')}>
+                    <button css={S.logo}><HiHome /></button>
+                    <button css={S.pageName}>PKKK플레이스</button>
                 </div>
                 <div>
                     <button css={S.menuButton} onClick={() => onClick('/userSetting')}><BiMenu /></button>

@@ -9,11 +9,20 @@ export const logoBox = css`
     margin-bottom: 30px;
 `;
 
+export const logoButtons = css`
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
+`;
+
 export const logo = css`
     width: 31px;
     height: 36px;
     padding: 8px 5px 7px;
-    background-color: white;
+    background-color: transparent;
     border: none;
     cursor: pointer;
 `;
@@ -21,7 +30,7 @@ export const logo = css`
 export const pageName = css`
     height: 36px;
     padding: 11px 2px 5px;
-    background-color: white;
+    background-color: transparent;
     border: none;
     cursor: pointer;
 `;
@@ -35,4 +44,10 @@ export const menuButton = css`
     background-color: white;
     font-weight: 600;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
