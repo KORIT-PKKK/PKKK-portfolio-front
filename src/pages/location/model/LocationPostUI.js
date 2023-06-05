@@ -53,6 +53,8 @@ const PostDetailUI = ({ locationPost }) => {
 
     if (locationPost.picDatas && locationPost.picDatas.includes(',')) {
         imageUrls = locationPost.picDatas.split(',');
+    } else {
+        imageUrls = locationPost.picDatas ? [locationPost.picDatas] : [];
     }
 
     const getStyles = (imageUrls) => {

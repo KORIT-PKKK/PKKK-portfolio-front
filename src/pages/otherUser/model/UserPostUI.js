@@ -47,6 +47,8 @@ const UserPostUI = ({ post, onClick }) => {
 
     if (post.picDatas && post.picDatas.includes(',')) {
         imageUrls = post.picDatas.split(',');
+    } else {
+        imageUrls = post.picDatas ? [post.picDatas] : [];
     }
 
     const getStyles = (imageUrls) => {
