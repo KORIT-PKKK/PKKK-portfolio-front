@@ -54,4 +54,10 @@ export const loginButton = css`
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
