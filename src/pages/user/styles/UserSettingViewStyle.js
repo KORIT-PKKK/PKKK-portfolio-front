@@ -42,16 +42,16 @@ export const profilemodifyButtonBox = css`
 export const profilemodifyButton = css`
     width: 100%;
     height: 40px;
-    border: none;
+    border: 1px solid black;
     border-radius: 10px;
-    background-color: #f4f7f8;
+    background-color: #E8E8E8;
     font-size: 16px;
     cursor: pointer;
     &:hover {
-        background-color: #dbdbdb;
+        background-color: #d2d2d2;
     }
     &:active {
-        background-color: #dbdbdb;
+        background-color: #bebebe;
     }
 `;
 

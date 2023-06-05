@@ -49,7 +49,7 @@ export const shareButton = css`
     padding: 0px;
     width: 22px;
     height: 22px;
-    margin-left: 5px;
+    margin-left: 8px;
     cursor: pointer;
 `;
 
@@ -59,59 +59,17 @@ export const Buttons = css`
     height: 39px;
 `;
 
-export const reviewButton = css`
+export const userOutLineButton = css`
     text-align: center;
     border: none;
     background-color: white;
     cursor: pointer;
     font-size: 16px;
     &:hover {
-        background-color: #fafafa;
+        background-color: #d2d2d2;
     }
     &:active {
-        background-color: #dbdbdb;
-    }
-`;
-
-export const pictureButton = css`
-    text-align: center;
-    border: none;
-    background-color: white;
-    cursor: pointer;
-    font-size: 16px;
-    &:hover {
-        background-color: #fafafa;
-    }
-    &:active {
-        background-color: #dbdbdb;
-    }
-`;
-
-export const followingButton = css`
-    text-align: center;
-    border: none;
-    background-color: white;
-    cursor: pointer;
-    font-size: 16px;
-    &:hover {
-        background-color: #fafafa;
-    }
-    &:active {
-        background-color: #dbdbdb;
-    }
-`;
-
-export const followerButton = css`
-    border: none;
-    background-color: white;
-    text-align: center;
-    cursor: pointer;
-    font-size: 16px;
-    &:hover {
-        background-color: #fafafa;
-    }
-    &:active {
-        background-color: #dbdbdb;
+        background-color: #bebebe;
     }
 `;
 
