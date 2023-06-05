@@ -315,7 +315,7 @@ const PostUpdateView = () => {
           onChangeActive={(event, newHover) => {
             setHover(newHover);
           }}
-          emptyIcon={<StarIcon style={{ opacity: 0.25 }} fontSize="inherit"/>}
+          emptyIcon={<StarIcon style={{ opacity: 0.25 }} fontSize="inherit" />}
           size="large"
         />
         {value !== null && (
@@ -337,7 +337,7 @@ const PostUpdateView = () => {
         <div css={S.postContainer}>
           <header>
             <div css={S.post}>
-              <h1>게시글 작성</h1>
+              <h1>게시글 수정</h1>
             </div>
             <div css={S.footer}>
               <div css={S.place}>

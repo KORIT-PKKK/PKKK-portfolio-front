@@ -41,7 +41,6 @@ const OtherUserView = () => {
         const response = await axios.get(`${localURL}/api/post/user`, params)
         return response;
 
-
     }, {
         onSuccess: (response) => {
             setUserPosts(response.data);
