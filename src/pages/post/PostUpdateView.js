@@ -13,8 +13,8 @@ import { BsPencilSquare } from "react-icons/bs";
 import PhotoCardUI from "./model/PhotoCardUI";
 import { v4 as uuidv4 } from "uuid";
 import {
-    deleteObject,
-    getDownloadURL,
+  deleteObject,
+  getDownloadURL,
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
@@ -37,7 +37,7 @@ const PostUpdateView = () => {
     postId: 0,
     userId: 0,
     locId: 0,
-    postEvalId:0,
+    postEvalId: 0,
     name: "",
     imageUrl: "",
     postCount: 0,
@@ -58,7 +58,7 @@ const PostUpdateView = () => {
   const [percentages, setPercentages] = useState([]);
   const [deleteList, setDeleteList] = useState([]);
   const [files, setFiles] = useState([]);
-  const [value, setValue] = useState(0.0); 
+  const [value, setValue] = useState(0.0);
   const [hover, setHover] = useState(-1);
   const fileInput = React.useRef(null);
 
@@ -134,10 +134,10 @@ const PostUpdateView = () => {
     const trimedUrl = url.trim();
     const updateList = imageUrls.filter((i) => i !== trimedUrl);
     setImageUrls(updateList);
-    if (deleteList.length < 1){
-        setDeleteList([trimedUrl]);
+    if (deleteList.length < 1) {
+      setDeleteList([trimedUrl]);
     } else {
-        setDeleteList([...deleteList, trimedUrl]);
+      setDeleteList([...deleteList, trimedUrl]);
     }
   };
 
@@ -147,12 +147,12 @@ const PostUpdateView = () => {
   };
 
   const handleDelete = async () => {
-    if (deleteList.length === 0){
-        return;
+    if (deleteList.length === 0) {
+      return;
     }
 
     console.log(deleteList);
-    
+
     for (const url of deleteList) {
       const path = decodeURIComponent(url.split("?")[0].split("/o/")[1]);
 
@@ -162,7 +162,7 @@ const PostUpdateView = () => {
       if (!fileRef) {
         console.log(`ref가 undefined입니다. 다음 반복으로 넘어갑니다.`);
         continue;
-    }
+      }
 
       try {
         await deleteObject(fileRef);
@@ -216,7 +216,7 @@ const PostUpdateView = () => {
   useEffect(() => {
     console.log(postDetail);
   }, [postDetail])
-  
+
 
   const handleRatingChange = (score) => {
     if (score < 0) {
@@ -246,7 +246,7 @@ const PostUpdateView = () => {
     const data = {
       postId: postDetail.postId,
       locId: postDetail.locId,
-      postEvalId:postDetail.postEvalId,
+      postEvalId: postDetail.postEvalId,
       username: Cookies.get("username"),
       evalScore: value,
       picDatas: uploadUrls,
@@ -264,16 +264,18 @@ const PostUpdateView = () => {
     }
   };
 
-  const updateSubmitHandle = async() => {
+  const updateSubmitHandle = async () => {
     const uploadedUrls = await handleUpload();
     console.log(uploadedUrls);
     updatePost(uploadedUrls).then((res) => {
-        if (res.status === 200){
-            handleDelete();
-            alert("게시글 수정 완료.");
-        }
+      if (res.status === 200) {
+        handleDelete();
+        alert("게시글 수정 완료.");
+      }
     })
     setFiles([]);
+    navigate("/");
+    window.location.reload();
   };
 
   const addBtnClick = () => {
@@ -296,7 +298,7 @@ const PostUpdateView = () => {
     4.5: 'Excellent',
     5: 'Excellent+',
   };
-  
+
   function getLabelText(value) {
     return `${value} Star${value !== 1 ? 's' : ''}, ${labels[value]}`;
   }
@@ -322,7 +324,7 @@ const PostUpdateView = () => {
           onChangeActive={(event, newHover) => {
             setHover(newHover);
           }}
-          emptyIcon={<StarIcon style={{ opacity: 0.25 }} fontSize="inherit" color="yellow"/>}
+          emptyIcon={<StarIcon style={{ opacity: 0.25 }} fontSize="inherit" color="yellow" />}
           size="large"
         />
         {value !== null && (
@@ -331,7 +333,7 @@ const PostUpdateView = () => {
       </Box>
     );
   }
-  
+
 
   return (
     <>
@@ -363,8 +365,8 @@ const PostUpdateView = () => {
           <main>
             <div css={S.mainContainer}>
               <div css={S.mainStarCheck} />
-              <RatingUI onRatingChange={handleRatingChange} />
-              <HoverRating defalutValue={value} hover={hover}/>
+              {/* <RatingUI onRatingChange={handleRatingChange} /> */}
+              <HoverRating defalutValue={value} hover={hover} />
               <div css={S.starScore}></div>
             </div>
             {

@@ -150,16 +150,17 @@ const UserUpdateView = () => {
 
   const updateUserInfoClick = async () => {
     try {
-        const url = await handleUpload();
-        console.log(`url : ${url}`);
-        updateUserInfo(url);
-        alert("Info update success.");
-      } catch (error) {
-        console.log(error);
-        alert("Info update failed");
-      }
-      setFile("");
-      navigate("/");
+      const url = await handleUpload();
+      console.log(`url : ${url}`);
+      updateUserInfo(url);
+      alert("Info update success.");
+    } catch (error) {
+      console.log(error);
+      alert("Info update failed");
+    }
+    setFile("");
+    navigate("/");
+    window.location.reload();
   };
 
   const handleNameChange = (e) => {
@@ -190,8 +191,8 @@ const UserUpdateView = () => {
       </header>
       <div css={S.infoModifyBox}></div>
       <div css={S.photoBox} onClick={addBtnClick}>
-        {file !== undefined ? <CircleAvatar url={file && URL.createObjectURL(file)} />:
-        <CircleAvatar url={profileImage}/>}
+        {file !== undefined ? <CircleAvatar url={file && URL.createObjectURL(file)} /> :
+          <CircleAvatar url={profileImage} />}
       </div>
       <input
         type="file"
