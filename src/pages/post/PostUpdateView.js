@@ -58,6 +58,8 @@ const PostUpdateView = () => {
   const [hover, setHover] = useState(-1);
   const fileInput = React.useRef(null);
 
+  console.log(value);
+
   const handleChange = (e) => {
     if (e.target.files.length > 0) {
       const fileList = Array.from(e.target.files);
@@ -354,7 +356,6 @@ const PostUpdateView = () => {
           <main>
             <div css={S.mainContainer}>
               <div css={S.mainStarCheck} />
-              {/* <RatingUI onRatingChange={handleRatingChange} /> */}
               <HoverRating defalutValue={value} hover={hover} />
               <div css={S.starScore}></div>
             </div>
@@ -412,7 +413,6 @@ const PostUpdateView = () => {
                 <BsPencilSquare />
                 수정
               </button>
-              {/* <button css={S.mainTextButton} type="button"><AiOutlineDelete />삭제</button> */}
             </div>
           </footer>
         </div>
