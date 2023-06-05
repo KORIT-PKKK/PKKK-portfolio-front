@@ -1,7 +1,9 @@
 import { css } from "@emotion/react";
 
 export const userOutLine = css`
+    background-color: #dbdbdb;
     padding: 20px 0px 11px;
+    margin-bottom: 3px;
 `;
 
 export const main = css`

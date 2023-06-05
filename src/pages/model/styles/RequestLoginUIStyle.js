@@ -27,10 +27,11 @@ export const profileBox = css`
 
 export const requestLoginButton = css`
     height: 69px;
-    background-color: white;
+    background-color: #dbdbdb;
     border: none;
     margin-right: 151px;
     font-size: 17px;
     cursor: pointer;
 `;
+
 

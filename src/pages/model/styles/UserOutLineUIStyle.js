@@ -19,7 +19,7 @@ export const userInfoLeft = css`
 export const profileBox = css`
     position: relative;
     overflow-y: hidden;
-    border: 1px solid #dbdbdb;
+    border: 1px solid black;
     border-radius: 50%;
     width: 64px;
     height: 64px;
@@ -45,7 +45,7 @@ export const username = css`
 
 export const shareButton = css`
     border: none;
-    background-color: white;
+    background-color: #dbdbdb;
     padding: 0px;
     width: 22px;
     height: 22px;
