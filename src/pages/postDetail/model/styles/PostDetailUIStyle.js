@@ -147,7 +147,6 @@ export const saveUnIcon = css`
 
 export const main = css`
     width: 100%;
-    height: 467px;
     padding-top: 16px;
 `;
 
@@ -167,16 +166,39 @@ export const buttonBox = css`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
 `;
 
-export const button = css`
+export const leftIcon = css`
+    margin-right: 15px;
+    font-size: 40px; 
+    cursor: pointer;
+    .fiIcon:hover {
+        background-color: #dbdbdb;
+    }
+`;
 
+export const rightIcon = css`
+    margin-right: 15px;
+    font-size: 40px; 
+    cursor: pointer;
+`;
+
+export const fiIcon = css`
+    &:hover {
+        background-color: #dbdbdb;
+    }
+    &:active {
+        background-color: #fafafa;
+    }
 `;
 
 export const detail = css`
     border: 1px solid #dbdbdb;
     width: 680px;
     height: auto;
-    margin: 5px 0px 5px 0px;
+    margin: 0px 0px 5px 0px;
     padding: 30px 20px 30px 20px;
+    
 `;
