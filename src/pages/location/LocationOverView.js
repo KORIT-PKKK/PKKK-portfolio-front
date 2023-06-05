@@ -23,7 +23,7 @@ const LocationOverView = () => {
         navigate(path);
     }
 
-    const postDetailView = useQuery(["postDetailView"], async () => {
+    const postLocationView = useQuery(["postLocationView"], async () => {
         if (rtk === undefined) {
             const params = {
                 params: {
@@ -62,7 +62,7 @@ const LocationOverView = () => {
         }
     });
 
-    if (postDetailView.isLoading) {
+    if (postLocationView.isLoading) {
         <div>불러오는 중...</div>
     }
 
