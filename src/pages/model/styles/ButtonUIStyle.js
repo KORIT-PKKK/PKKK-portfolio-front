@@ -18,4 +18,10 @@ export const button = css`
     cursor: pointer;
     font-size: 15px;
     font-weight: 600;
+    &:hover {
+        background-color: #dbdbdb;
+    }
+    &:active {
+        background-color: #fafafa;
+    }
 `;

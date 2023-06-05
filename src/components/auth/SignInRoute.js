@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 
 const SignInRoute = ({ path, element }) => {
     const rtk = Cookies.get("refreshToken");
-    const authenticatedPath = ["/userSetting", "/userUpdate", "/postAddView", "/postUpdateView"];
+    const authenticatedPath = ["/userSetting", "/userUpdate", "/postAddView", "/postUpdateView", "/change/password"];
     const authPath = "/auth";
 
     console.log(rtk === undefined)

@@ -44,7 +44,7 @@ export const photoBox = css`
 
 export const overlay = css`
     position: absolute;
-    top: 127px;
+    top: 57px;
     width: 90px;
     height: 90px;
     background-color: green;

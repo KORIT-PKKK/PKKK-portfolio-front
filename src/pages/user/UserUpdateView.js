@@ -164,44 +164,46 @@ const UserUpdateView = () => {
         </button>
         <h1 css={S.headerTitle}>프로필 설정</h1>
       </header>
-      <div css={S.infoModifyBox}></div>
-      <div css={S.photoBox} onClick={addBtnClick}>
-        {file !== undefined ? <CircleAvatar url={file && URL.createObjectURL(file)} /> :
-          <CircleAvatar url={profileImage} />}
+      <div css={S.infoModifyBox}>
+
+        <div css={S.photoBox} onClick={addBtnClick}>
+          {file !== undefined ? <CircleAvatar url={file && URL.createObjectURL(file)} /> :
+            <CircleAvatar url={profileImage} />}
+        </div>
+        <input
+          type="file"
+          accept=""
+          ref={fileInput}
+          onChange={uploadTemp}
+          style={{ display: "none" }}
+        />
+        <div css={S.inputLabel}>닉네임</div>
+        <input
+          css={S.nickNameInput}
+          type="text"
+          name="name"
+          placeholder="한글, 영문, 숫자, 공백2~20자까지 입력할 수 있어요!"
+          value={updateName}
+          onChange={handleNameChange}
+          minLength={2}
+          maxLength={20}
+        />
+        <div css={S.nickNameState}>
+          <div>닉네임을 입력해주세요!</div>
+          <div>{nicknameLength}/20</div>
+        </div>
+        <div css={S.inputLabel}>소개</div>
+        <textarea
+          css={S.introduceInput}
+          type="text"
+          name="introduce"
+          placeholder="예) 분위기 있는 카페 찾아다녀요~"
+          value={updateIntro}
+          onChange={handleIntroChange}
+          maxLength={150}
+        />
+        <div css={S.introduceState}>{introduceLength}/150</div>
       </div>
-      <input
-        type="file"
-        accept=""
-        ref={fileInput}
-        onChange={uploadTemp}
-        style={{ display: "none" }}
-      />
-      <div css={S.inputLabel}>닉네임</div>
-      <input
-        css={S.nickNameInput}
-        type="text"
-        name="name"
-        placeholder="한글, 영문, 숫자, 공백2~20자까지 입력할 수 있어요!"
-        value={updateName}
-        onChange={handleNameChange}
-        minLength={2}
-        maxLength={19}
-      />
-      <div css={S.nickNameState}>
-        <div>닉네임을 입력해주세요!</div>
-        <div>{nicknameLength}/20</div>
-      </div>
-      <div css={S.inputLabel}>소개</div>
-      <textarea
-        css={S.introduceInput}
-        type="text"
-        name="introduce"
-        placeholder="예) 분위기 있는 카페 찾아다녀요~"
-        value={updateIntro}
-        onChange={handleIntroChange}
-        maxLength={149}
-      />
-      <div css={S.introduceState}>{introduceLength}/150</div>
       <div css={S.saveBox}>
         <button css={S.saveButton} onClick={updateUserInfoClick}>
           저장하기

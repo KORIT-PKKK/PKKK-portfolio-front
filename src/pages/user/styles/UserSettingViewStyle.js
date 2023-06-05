@@ -24,12 +24,19 @@ export const backButton = css`
     margin-right: -40px;
     margin-top: -20px;
     cursor: pointer;
+    &:hover {
+        color: red;
+    }
+    &:active {
+        color: red;
+    }
 `;
 
 export const profilemodifyButtonBox = css`
     width: 720px;
     margin: 0px auto;
     padding: 0px 20px 24px;
+    
 `;
 
 export const profilemodifyButton = css`
@@ -40,6 +47,12 @@ export const profilemodifyButton = css`
     background-color: #f4f7f8;
     font-size: 16px;
     cursor: pointer;
+    &:hover {
+        background-color: #dbdbdb;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const profilemodifyButtonIcon = css`
@@ -70,6 +83,12 @@ export const followSettingButton = css`
     background-color: white;
     font-size: 16px;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const followSetting = css`
@@ -110,6 +129,12 @@ export const button = css`
     border: none;
     font-size: 16px;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const logoutUsername = css`

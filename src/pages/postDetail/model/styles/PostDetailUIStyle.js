@@ -104,6 +104,12 @@ export const postSaveButton = css`
     font-weight: 600;
     text-align: center;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const postUnSaveButton = css`
@@ -113,6 +119,12 @@ export const postUnSaveButton = css`
     font-weight: 600;
     text-align: center;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const postSave = css`

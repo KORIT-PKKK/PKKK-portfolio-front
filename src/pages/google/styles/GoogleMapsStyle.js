@@ -26,6 +26,12 @@ export const save = css`
     margin: 10px 0px;
     font-size: 14px;
     font-weight: 600;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const unSave = css`
@@ -34,6 +40,12 @@ export const unSave = css`
     margin: 10px 0px;
     font-size: 14px;
     font-weight: 600;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const saveIcon = css`
@@ -51,4 +63,10 @@ export const writeButton = css`
     font-weight: 600;
     text-decoration: underline;
     cursor: pointer;
+    &:hover {
+        color: red;
+    }
+    &:active {
+        color: red;
+    }
 `;

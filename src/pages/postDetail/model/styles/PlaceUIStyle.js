@@ -39,6 +39,12 @@ export const placeSaveButton = css`
     border: 1px solid white;
     font-weight: 600;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const placeUnSaveButton = css`
@@ -46,6 +52,12 @@ export const placeUnSaveButton = css`
     border: 1px solid white;
     font-weight: 600;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const placeSaveIcon = css`

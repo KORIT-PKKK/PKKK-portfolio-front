@@ -105,6 +105,12 @@ export const postUnSaveButton = css`
     font-weight: 600;
     text-align: center;
     cursor: pointer;
+    &:hover {
+        background-color: rgba(255, 0, 0, 0.3);
+    }
+    &:active {
+        background-color: rgba(255, 0, 0, 0.5);
+    }
 `;
 
 export const postUnSave = css`
@@ -212,6 +218,7 @@ export const place = css`
 export const placeDetail = css` 
     display: flex;
     margin: 0px 0px 7px 0px;
+    
 `;
 
 export const placeWordConnection = css`
@@ -230,6 +237,12 @@ export const placeSaveButton = css`
     border: 1px solid white;
     font-weight: 600;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const placeUnSaveButton = css`
@@ -237,6 +250,12 @@ export const placeUnSaveButton = css`
     border: 1px solid white;
     font-weight: 600;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const placeSaveIcon = css`

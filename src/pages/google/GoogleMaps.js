@@ -102,7 +102,7 @@ const GoogleMaps = () => {
     }
   }, {
     onSuccess: (response) => {
-      if (response === 200) {
+      if (response.status === 200) {
         setLocationFavState(false);
         alert(`${selectedMarker.locName}을(를) 즐겨찾기에서 삭제했습니다.`);
       }

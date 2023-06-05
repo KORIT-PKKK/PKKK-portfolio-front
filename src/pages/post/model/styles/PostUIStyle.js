@@ -26,8 +26,8 @@ export const profile = css`
     display: flex;
     width: 100%;
     height: 62px;
-    margin: -10px;
     padding: 10px;
+    margin: -10px;
     background-color: white;
     cursor: pointer;
 `;
@@ -106,6 +106,12 @@ export const postSaveButton = css`
     font-weight: 600;
     text-align: center;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const postUnSaveButton = css`
@@ -115,6 +121,12 @@ export const postUnSaveButton = css`
     font-weight: 600;
     text-align: center;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const postSave = css`
@@ -249,6 +261,12 @@ export const placeSaveButton = css`
     border: 1px solid white;
     font-weight: 600;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const placeUnSaveButton = css`
@@ -256,6 +274,12 @@ export const placeUnSaveButton = css`
     border: 1px solid white;
     font-weight: 600;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const placeSaveIcon = css`

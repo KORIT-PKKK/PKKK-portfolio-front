@@ -65,6 +65,12 @@ export const reviewButton = css`
     background-color: white;
     cursor: pointer;
     font-size: 16px;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const pictureButton = css`
@@ -73,6 +79,12 @@ export const pictureButton = css`
     background-color: white;
     cursor: pointer;
     font-size: 16px;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const followingButton = css`
@@ -81,6 +93,12 @@ export const followingButton = css`
     background-color: white;
     cursor: pointer;
     font-size: 16px;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const followerButton = css`
@@ -89,6 +107,12 @@ export const followerButton = css`
     text-align: center;
     cursor: pointer;
     font-size: 16px;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const count = css`

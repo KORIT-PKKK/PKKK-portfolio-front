@@ -43,6 +43,12 @@ export const saveButtonBox = css`
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const unSaveButtonBox = css`
@@ -51,6 +57,12 @@ export const unSaveButtonBox = css`
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 export const saveIcon = css`

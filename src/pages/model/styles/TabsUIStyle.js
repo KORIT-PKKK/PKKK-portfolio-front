@@ -12,6 +12,12 @@ export const menuBar = css`
 export const menu = css`
     padding: 14px 5px;
     cursor: pointer;
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #dbdbdb;
+    }
 `;
 
 

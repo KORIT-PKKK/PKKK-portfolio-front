@@ -32,7 +32,7 @@ function App() {
         <Route path='/otherUser' element={<OtherUserView />} />
         <Route path='/postDetail' element={<PostDetailView />} />
         <Route path='/locationDetail' element={<LocationOverView />} />
-        <Route path='/change/password' element={<ChangePasswordView />} />
+        <Route path='/change/password' element={<SignInRoute path='/change/password' element={<ChangePasswordView />} />} />
       </Routes >
     </>
   );
