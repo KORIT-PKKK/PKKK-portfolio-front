@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './styles/PostDetailUIStyle';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import { IoMdArrowDropleftCircle } from 'react-icons/io';
-import { IoMdArrowDroprightCircle } from 'react-icons/io';
+import { BsArrowLeftSquare, BsArrowRightSquare } from 'react-icons/bs';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
@@ -201,8 +200,8 @@ const PostDetailUI = ({ postDetail }) => {
                     </div>
                     {imageUrls.length > 1 && (
                         <div css={S.buttonBox}>
-                            {<button onClick={handlePrevImage} css={S.button}><IoMdArrowDropleftCircle /></button>}
-                            {<button onClick={handleNextImage} css={S.button}><IoMdArrowDroprightCircle /></button>}
+                            {<div css={S.leftIcon} onClick={handlePrevImage}><BsArrowLeftSquare css={S.fiIcon}/></div>}
+                            {<div css={S.rightIcon} onClick={handleNextImage}><BsArrowRightSquare css={S.fiIcon} /></div>}
                         </div>
                     )}
                 </main>
