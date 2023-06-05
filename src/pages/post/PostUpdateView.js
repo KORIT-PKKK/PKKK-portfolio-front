@@ -315,7 +315,7 @@ const PostUpdateView = () => {
           onChangeActive={(event, newHover) => {
             setHover(newHover);
           }}
-          emptyIcon={<StarIcon style={{ opacity: 0.25 }} fontSize="inherit" color="yellow" />}
+          emptyIcon={<StarIcon style={{ opacity: 0.25 }} fontSize="inherit"/>}
           size="large"
         />
         {value !== null && (
@@ -357,7 +357,6 @@ const PostUpdateView = () => {
             <div css={S.mainContainer}>
               <div css={S.mainStarCheck} />
               <HoverRating defalutValue={value} hover={hover} />
-              <div css={S.starScore}></div>
             </div>
             {
               <div css={S.photoContainer}>

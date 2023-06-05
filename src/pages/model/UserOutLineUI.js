@@ -49,10 +49,10 @@ const UserOutLineUI = ({ currentUserId, onClick }) => {
                     <div>
                         <div css={S.usernameBox} onClick={() => onClick('/userUpdate')}><div css={S.username}>{userOutline.name}</div> <button css={S.shareButton}><GrShare /></button></div>
                         <div css={S.Buttons}>
-                            <button css={S.reviewButton} onClick={() => onClick('/timeLine')}>리뷰 <em css={S.count}>{userOutline.postCount}</em></button>
-                            <button css={S.pictureButton} onClick={() => onClick('/timeLine')}>사진 <em css={S.count}>{userOutline.picCount}</em></button>
-                            <button css={S.followingButton} onClick={() => onClick('/follow/following')}>팔로잉 <em css={S.count}>{userOutline.followeeCount}</em></button>
-                            <button css={S.followerButton} onClick={() => onClick('/follow/follower')}>팔로워 <em css={S.count}>{userOutline.followerCount}</em></button>
+                            <button css={[S.reviewButton, { backgroundColor: '#dbdbdb' }]} onClick={() => onClick('/timeLine')}>리뷰 <em css={S.count}>{userOutline.postCount}</em></button>
+                            <button css={[S.pictureButton, { backgroundColor: '#dbdbdb' }]} onClick={() => onClick('/timeLine')}>사진 <em css={S.count}>{userOutline.picCount}</em></button>
+                            <button css={[S.followingButton, { backgroundColor: '#dbdbdb' }]} onClick={() => onClick('/follow/following')}>팔로잉 <em css={S.count}>{userOutline.followeeCount}</em></button>
+                            <button css={[S.followerButton, { backgroundColor: '#dbdbdb' }]} onClick={() => onClick('/follow/follower')}>팔로워 <em css={S.count}>{userOutline.followerCount}</em></button>
                         </div>
                     </div>
                 </div>

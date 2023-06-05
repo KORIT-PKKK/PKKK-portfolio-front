@@ -6,7 +6,7 @@ export const container = css`
 `;
 
 export const userInfocontainer = css` 
-    background-color: white;
+    background-color: #dbdbdb;
 `;
 
 export const userInfoAndBackButton = css`
