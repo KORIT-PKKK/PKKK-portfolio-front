@@ -192,7 +192,7 @@ const UserUpdateView = () => {
         <div>{nicknameLength}/20</div>
       </div>
       <div css={S.inputLabel}>소개</div>
-      <input
+      <textarea
         css={S.introduceInput}
         type="text"
         name="introduce"
