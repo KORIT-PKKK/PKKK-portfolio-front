@@ -73,28 +73,30 @@ const UserSettingView = () => {
                     <button css={S.profilemodifyButton} onClick={() => menuClickHandle('/userUpdate')}><FiUser css={S.profilemodifyButtonIcon} />프로필 편집</button>
                 </div>
             </div>
-            <div css={S.followSettingContainer}>
-                <div css={S.followSettingBox}>
-                    <button css={S.followSettingButton} onClick={() => menuClickHandle('/follow')}>
-                        <div css={S.followSetting}><FiUsers css={S.followSettingIcon} /> 팔로우 관리 </div>
-                    </button>
+            <div css={S.settingView}>
+                <div css={S.followSettingContainer}>
+                    <div css={S.followSettingBox}>
+                        <button css={S.followSettingButton} onClick={() => menuClickHandle('/follow')}>
+                            <div css={S.followSetting}><FiUsers css={S.followSettingIcon} /> 팔로우 관리 </div>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div css={S.Buttoncontainer}>
-                <div css={S.buttonBox} onClick={signOut}>
-                    <button css={S.button}><div>로그아웃</div> <div css={S.logoutUsername}>{username}</div></button>
+                <div css={S.Buttoncontainer}>
+                    <div css={S.buttonBox} onClick={signOut}>
+                        <button css={S.button}><div>로그아웃</div> <div css={S.logoutUsername}>{username}</div></button>
+                    </div>
                 </div>
-            </div>
-            <div css={S.Buttoncontainer}>
-                <div css={S.buttonBox} onClick={() => menuClickHandle('/change/password')}>
-                    <button css={S.button}><div>비밀번호 변경</div></button>
+                <div css={S.Buttoncontainer}>
+                    <div css={S.buttonBox} onClick={() => menuClickHandle('/change/password')}>
+                        <button css={S.button}><div>비밀번호 변경</div></button>
+                    </div>
                 </div>
-            </div>
-            <div css={S.Buttoncontainer}>
-                <div css={S.buttonBox}>
-                    <button css={S.button} onClick={() => menuClickHandle('/feed')}><div>피드</div></button>
-                    <button css={S.button} onClick={() => menuClickHandle('/timeLine')}><div>타임라인</div></button>
-                    <button css={S.button} onClick={() => menuClickHandle('/fav')}><div>즐겨찾기</div></button>
+                <div css={S.Buttoncontainer}>
+                    <div css={S.buttonBox}>
+                        <button css={S.button} onClick={() => menuClickHandle('/feed')}><div>피드</div></button>
+                        <button css={S.button} onClick={() => menuClickHandle('/timeLine')}><div>타임라인</div></button>
+                        <button css={S.button} onClick={() => menuClickHandle('/fav')}><div>즐겨찾기</div></button>
+                    </div>
                 </div>
             </div>
             <footer css={S.footer}>

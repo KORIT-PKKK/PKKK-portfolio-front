@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 
 export const container = css`
     height: 1000px;
-    background-color: #f4f7f8;
+    background-color: #fafafa;
 `;
 
 export const userInfocontainer = css` 
@@ -57,6 +57,13 @@ export const profilemodifyButton = css`
 
 export const profilemodifyButtonIcon = css`
     margin-right: 5px;
+`;
+
+export const settingView = css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
 `;
 
 export const followSettingContainer = css` 
