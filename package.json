@@ -41,7 +41,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://korit-pkkk.github.io/PKKK-portfolio-front/",
   "eslintConfig": {
     "extends": [
       "react-app",
