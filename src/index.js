@@ -14,7 +14,7 @@ root.render(
   // <React.StrictMode>
   <RecoilRoot>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter>
         <App />
       </BrowserRouter>
     </QueryClientProvider>
