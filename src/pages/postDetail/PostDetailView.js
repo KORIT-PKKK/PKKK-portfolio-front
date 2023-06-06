@@ -38,32 +38,36 @@ const PostDetailView = () => {
     }
 
     const postDetailView = useQuery(["postDetailView"], async () => {
-
-        if (rtk === undefined) {
+        if (postDetailView.isFirstLoad) {
+            if (rtk === undefined) {
+                const params = {
+                    params: {
+                        postId: postId
+                    }
+                };
+                const response = await axios.get(`${awsURL}/api/post/view`, params);
+                return response;
+            }
+    
+            const userId = Cookies.get("userId");
             const params = {
                 params: {
-                    postId: postId
-                }
-            }
+                    postId: postId,
+                    userId: userId
+                    }
+            };
             const response = await axios.get(`${awsURL}/api/post/view`, params);
             return response;
         }
-
-        const userId = Cookies.get("userId");
-        const params = {
-            params: {
-                postId: postId,
-                userId: userId
-            }
-        }
-        const response = await axios.get(`${awsURL}/api/post/view`, params);
-        return response;
-
     }, {
         onSuccess: (response) => {
             setPostDetail(response.data[0]);
         }
     });
+    
+    if (postDetailView.isLoading || postDetailView.isFirstLoad) {
+        return <div>불러오는 중...</div>;
+    }
 
     if (postDetailView.isLoading) {
         <div>불러오는 중...</div>

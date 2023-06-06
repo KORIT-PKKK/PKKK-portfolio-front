@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { axiosInstance } from '../../../Controller/interceptors/TokenRefresher';
 import RatingScoreUI from '../../model/RatingScoreUI';
+import { IoEyeSharp } from 'react-icons/io5';
 
 const PostDetailUI = ({ postDetail }) => {
     const navigate = useNavigate();
@@ -205,6 +206,11 @@ const PostDetailUI = ({ postDetail }) => {
                         </div>
                     )}
                 </main>
+                <div css={S.postViewCntBox}>
+                    <div css={S.postViewCnt}>
+                        <IoEyeSharp css={S.postViewCntIcon}/>{postDetail.postViewCnt}
+                    </div>
+                </div>
                 <div>
                     <div css={S.detail}>
                         {postDetail.content}<RatingScoreUI rating={postDetail.evalScore} />

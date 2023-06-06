@@ -194,6 +194,22 @@ export const fiIcon = css`
     }
 `;
 
+export const postViewCntBox = css`
+    width: 680px;
+    height: auto;
+    text-align: right;
+`;
+
+export const postViewCnt = css`
+    color: gray;
+    font-size: 15px;
+`;
+
+export const postViewCntIcon = css`
+    fill: gray;
+    font-size: 12px;
+`;
+
 export const detail = css`
     border: 1px solid #dbdbdb;
     width: 680px;
