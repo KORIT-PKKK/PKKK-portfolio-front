@@ -169,7 +169,11 @@ const TimelineUI = ({ timeLine }) => {
     }
 
     const deleteSubmitHandle = () => {
-        postDelete(timeLine.postId);
+        const confirmDelete = window.confirm("정말 삭제하시겠습니까?");
+
+        if (confirmDelete) {
+            postDelete(timeLine.postId);
+        }
     }
 
     const modifyButtonHandle = () => {
