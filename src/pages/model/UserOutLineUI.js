@@ -4,6 +4,7 @@ import * as S from './styles/UserOutLineUIStyle';
 import { GrShare } from 'react-icons/gr';
 import { useQuery } from 'react-query';
 import { axiosInstance } from '../../Controller/interceptors/TokenRefresher';
+import { awsURL } from '../../config/ApiURL';
 
 
 const UserOutLineUI = ({ currentUserId, onClick }) => {
@@ -24,7 +25,7 @@ const UserOutLineUI = ({ currentUserId, onClick }) => {
                 userId: currentUserId,
             },
         };
-        const response = await axiosInstance.get(`/api/user/info`, params)
+        const response = await axiosInstance.get(`${awsURL}/api/user/info`, params)
         return response;
     }, {
         onSuccess: (response) => {
