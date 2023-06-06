@@ -4,7 +4,7 @@ import * as S from './styles/UserOutLineUIStyle';
 import { GrShare } from 'react-icons/gr';
 import { useQuery } from 'react-query';
 import axios from 'axios';
-import { localURL } from '../../config/ApiURL';
+import { awsURL, localURL } from '../../config/ApiURL';
 
 
 const UserOutLineUI = ({ currentUserId, onClick }) => {
@@ -25,7 +25,7 @@ const UserOutLineUI = ({ currentUserId, onClick }) => {
                 userId: currentUserId,
             },
         };
-        const response = await axios.get(`${localURL}/api/user/info`, params)
+        const response = await axios.get(`${awsURL}/api/user/info`, params)
         return response;
     }, {
         onSuccess: (response) => {

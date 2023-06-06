@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import HeaderUI from './model/HeaderUI';
 import PlaceUI from './model/PlaceUI';
 import PostDetailUI from './model/LocationPostUI';
-import { localURL } from '../../config/ApiURL';
+import { awsURL, localURL } from '../../config/ApiURL';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import Cookies from 'js-cookie';
@@ -30,7 +30,7 @@ const LocationOverView = () => {
                     locId: locId
                 }
             }
-            const response = await axios.get(`${localURL}/api/post/location`, params);
+            const response = await axios.get(`${awsURL}/api/post/location`, params);
             return response;
         }
 
@@ -41,7 +41,7 @@ const LocationOverView = () => {
                 userId: userId
             }
         }
-        const response = await axios.get(`${localURL}/api/post/location`, params);
+        const response = await axios.get(`${awsURL}/api/post/location`, params);
         return response;
     }, {
         onSuccess: (response) => {
@@ -53,7 +53,7 @@ const LocationOverView = () => {
 
         const userId = Cookies.get("userId");
 
-        const response = await axios.get(`${localURL}/api/loc/detail`, { params: { userId: userId, locId: locId } })
+        const response = await axios.get(`${awsURL}/api/loc/detail`, { params: { userId: userId, locId: locId } })
         return response;
 
     }, {

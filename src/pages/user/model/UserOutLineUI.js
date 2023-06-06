@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import * as S from './styles/UserOutLineUIStyle';
 import { useQuery } from 'react-query';
 import axios from 'axios';
-import { localURL } from '../../../config/ApiURL';
+import { awsURL, localURL } from '../../../config/ApiURL';
 
 const UserOutLineUI = ({ currentUserId }) => {
     const [userOutline, setUserOutline] = useState({
@@ -23,7 +23,7 @@ const UserOutLineUI = ({ currentUserId }) => {
                 userId: currentUserId,
             },
         };
-        const response = await axios.get(`${localURL}/api/user/info`, params)
+        const response = await axios.get(`${awsURL}/api/user/info`, params)
         console.log(response.data[0]);
         return response;
     }, {

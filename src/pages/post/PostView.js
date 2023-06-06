@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import PostUI from './model/PostUI';
 import { useNavigate } from 'react-router-dom';
-import { localURL } from '../../config/ApiURL';
+import { awsURL, localURL } from '../../config/ApiURL';
 import Cookies from 'js-cookie';
 
 const PostView = () => {
@@ -15,13 +15,13 @@ const PostView = () => {
     const searchPostList = useQuery(["searchPostList"], async () => {
             
         if (rtk === undefined) {
-            const response = await axios.get(`${localURL}/api/post/list`)
+            const response = await axios.get(`${awsURL}/api/post/list`)
             return response;
         }
 
         const userId = Cookies.get("userId");
 
-        const response = await axios.get(`${localURL}/api/post/list`, { params: { userId: userId } })
+        const response = await axios.get(`${awsURL}/api/post/list`, { params: { userId: userId } })
         return response;
 
     }, {

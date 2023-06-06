@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { localURL } from "../../config/ApiURL";
+import { awsURL, localURL } from "../../config/ApiURL";
 import { useQuery } from "react-query";
 import { BiLeftArrow } from "react-icons/bi";
 import { BsPencilSquare } from "react-icons/bs";
@@ -180,7 +180,7 @@ const PostUpdateView = () => {
             postId: postId,
           },
         };
-        const response = await axios.get(`${localURL}/api/post/view`, params);
+        const response = await axios.get(`${awsURL}/api/post/view`, params);
         return response;
       }
 
@@ -191,7 +191,7 @@ const PostUpdateView = () => {
           userId: userId,
         },
       };
-      const response = await axios.get(`${localURL}/api/post/view`, params);
+      const response = await axios.get(`${awsURL}/api/post/view`, params);
       return response;
     },
     {

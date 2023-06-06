@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import * as S from './styles/RegisterViewStyle';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { localURL } from '../../config/ApiURL';
+import { awsURL, localURL } from '../../config/ApiURL';
 
 const RegisterView = () => {
 
@@ -56,7 +56,7 @@ const RegisterView = () => {
 
         if (Object.values(errors).every((error) => error === "")) {
             try {
-                await axios.post(`${localURL}/api/auth/signup`, JSON.stringify(data), option);
+                await axios.post(`${awsURL}/api/auth/signup`, JSON.stringify(data), option);
                 alert("회원가입 성공!");
                 navigate("/auth/login");
             } catch (error) {

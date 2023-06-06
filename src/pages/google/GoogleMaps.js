@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { AiOutlineStar } from 'react-icons/ai';
 import { AiFillStar } from 'react-icons/ai';
 import { useMutation, useQuery } from 'react-query';
-import { localURL } from '../../config/ApiURL';
+import { awsURL, localURL } from '../../config/ApiURL';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { axiosInstance } from '../../Controller/interceptors/TokenRefresher';
@@ -62,7 +62,7 @@ const GoogleMaps = () => {
   const searchLocationList = useQuery(["searchLocationList"], async () => {
 
     const userId = Cookies.get("userId");
-    const response = await axios.get(`${localURL}/api/loc/list`, { params: { userId: userId } })
+    const response = await axios.get(`${awsURL}/api/loc/list`, { params: { userId: userId } })
     return response;
   }, {
     onSuccess: (response) => {

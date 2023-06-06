@@ -1,9 +1,9 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { localURL } from '../../config/ApiURL';
+import { awsURL, localURL } from '../../config/ApiURL';
 
 const axiosInstance = axios.create({
-    baseURL: `${localURL}`,
+    baseURL: `${awsURL}`,
     headers: { "Content-Type": "application/json" }
 });
 
@@ -22,7 +22,7 @@ const tokenRefresher = async () => {
         "username": username,
         "refreshToken": refreshToken
     }
-    const response = await axios.post(`${localURL}/api/auth/refresh`, JSON.stringify(refreshInfo), option);
+    const response = await axios.post(`${awsURL}/api/auth/refresh`, JSON.stringify(refreshInfo), option);
 
     let accessToken = response.data.accessToken;
     console.log(response);

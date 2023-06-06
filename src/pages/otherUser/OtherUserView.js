@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import OtherUserOutLineUI from './model/OtherUserOutLineUI';
 import ButtonUI from './model/ButtonUI';
 import { useQuery } from 'react-query';
-import { localURL } from '../../config/ApiURL';
+import { awsURL, localURL } from '../../config/ApiURL';
 import axios from 'axios';
 import { useState } from 'react';
 import UserPostUI from './model/UserPostUI';
@@ -27,7 +27,7 @@ const OtherUserView = () => {
                     puId: puId
                 },
             };
-            const response = await axios.get(`${localURL}/api/post/user`, params)
+            const response = await axios.get(`${awsURL}/api/post/user`, params)
             return response;
         }
 
@@ -38,7 +38,7 @@ const OtherUserView = () => {
                 userId: userId
             },
         };
-        const response = await axios.get(`${localURL}/api/post/user`, params)
+        const response = await axios.get(`${awsURL}/api/post/user`, params)
         return response;
 
     }, {

@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useMutation, useQuery } from 'react-query';
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import { localURL } from '../../config/ApiURL';
+import { awsURL, localURL } from '../../config/ApiURL';
 import { v4 as uuidv4 } from 'uuid'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 import storage from '../../Firebase'
@@ -110,7 +110,7 @@ const PostAddView = () => {
 
         const userId = Cookies.get("userId");
 
-        const response = await axios.get(`${localURL}/api/loc/detail`, { params: { userId: userId, locId: locId } })
+        const response = await axios.get(`${awsURL}/api/loc/detail`, { params: { userId: userId, locId: locId } })
         return response;
 
     }, {
