@@ -39,9 +39,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy" : "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "homepage": "https://korit-pkkk.github.io/PKKK-portfolio-front"
+    "homepage": "https://0476a.github.io/PKKK-portfolio-front"
   },
   "eslintConfig": {
     "extends": [
