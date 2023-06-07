@@ -109,7 +109,7 @@ export const detail = css`
     width: 680px;
     height: auto;
     margin: 5px 0px 5px 0px;
-    padding: 30px 20px 30px 20px;   
+    padding: 15px 20px 15px 20px;    
 `;
 
 export const footer = css`

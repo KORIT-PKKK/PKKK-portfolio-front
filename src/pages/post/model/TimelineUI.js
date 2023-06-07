@@ -202,7 +202,10 @@ const TimelineUI = ({ timeLine }) => {
                 </main>
                 <div>
                     <div css={S.detail}>
-                        {timeLine.content}<RatingScoreUI rating={timeLine.evalScore} />
+                        <RatingScoreUI rating={timeLine.evalScore} />
+                        <div style={{ margin: '40px 0'}}>
+                                {timeLine.content}
+                        </div>
                     </div>
                 </div>
                 <footer>

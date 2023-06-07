@@ -11,8 +11,8 @@ const RatingScoreUI = ({ rating }) => {
   return (
     <div className="w-10/12 max-w-md space-y-6 rounded-lg bg-slate-50 px-3 py-6 text-slate-800 shadow-lg">
 
-      <div className="flex justify-center">
-        <div className="flex w-fit rounded-lg border-2 bg-slate-300 py-2 px-1">
+      <div className="flex justify-center" style={{ display:'flex', alignItems:'center'}}>
+        <div className="flex w-fit rounded-lg border-2 bg-slate-300 py-2 px-1" >
           {Array(5)
             .fill(0)
             .map((_, index) => {
@@ -36,8 +36,8 @@ const RatingScoreUI = ({ rating }) => {
                 />
               );
             })}
-            <span className="rating">({rating})</span>
         </div>
+        <span className="rating" style={{ marginLeft:'5px'}}>({rating})</span>  
       </div>
     </div>
   );

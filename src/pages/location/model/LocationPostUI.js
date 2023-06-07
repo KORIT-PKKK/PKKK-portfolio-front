@@ -242,7 +242,10 @@ const PostDetailUI = ({ locationPost }) => {
                 </main>
                 <div>
                     <div css={S.detail}>
-                        {locationPost.content}<RatingScoreUI rating={locationPost.evalScore} />
+                        <RatingScoreUI rating={locationPost.evalScore} />
+                        <div style={{ margin: '40px 0'}}>
+                            {locationPost.content}
+                        </div>
                     </div>
                 </div>
             </div>

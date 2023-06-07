@@ -162,6 +162,7 @@ export const imageBox = css`
 export const imgContent = css`
     width: 100%;
     height: 100%;
+    object-fit: contain;
 `;
 
 export const buttonBox = css`
@@ -216,7 +217,6 @@ export const detail = css`
     border: 1px solid #dbdbdb;
     width: 680px;
     height: auto;
-    margin: 0px 0px 5px 0px;
-    padding: 30px 20px 30px 20px;
-    
+    margin: 5px 0px 5px 0px;
+    padding: 15px 20px 15px 20px;
 `;

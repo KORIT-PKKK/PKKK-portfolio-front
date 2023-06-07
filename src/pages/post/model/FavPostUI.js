@@ -258,7 +258,10 @@ const FavPostUI = ({ favPost }) => {
                 </main>
                 <div>
                     <div css={S.detail}>
-                        {favPost.content}<RatingScoreUI rating={favPost.evalScore} />
+                        <RatingScoreUI rating={favPost.evalScore} />
+                        <div style={{ margin: '40px 0'}}>
+                                {favPost.content}
+                        </div>
                     </div>
                 </div>
                 <footer>

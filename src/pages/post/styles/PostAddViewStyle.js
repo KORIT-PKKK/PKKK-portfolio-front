@@ -71,6 +71,7 @@ export const mainContainer = css`
 
 export const mainStarCheck = css`
     margin-top: 20px;
+    margin-bottom: 30px;
     font-size: 30px;
     font-weight: 600;
 `;
@@ -78,7 +79,7 @@ export const mainStarCheck = css`
 export const starScore = css`
     display: flex;
     cursor: pointer;
-    margin: 20px 0px 20px 0px;
+    margin: 20px 0px 50px 0px;
 `;
 
 export const mainPicture = css`

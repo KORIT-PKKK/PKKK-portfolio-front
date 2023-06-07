@@ -20,6 +20,12 @@ export const title = css`
     margin-bottom: 10px;
 `;
 
+export const starScore = css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
 export const save = css`
     color: black;
     cursor: pointer;

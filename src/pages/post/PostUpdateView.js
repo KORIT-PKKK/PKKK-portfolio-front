@@ -356,8 +356,8 @@ const PostUpdateView = () => {
           <main>
             <div css={S.mainContainer}>
               <div css={S.mainStarCheck} />
-              <HoverRating defalutValue={value} hover={hover} />
-            </div>
+                <HoverRating defalutValue={value} hover={hover} />
+              </div>
             {
               <div css={S.photoContainer}>
                 {imageUrls.map((url) => (

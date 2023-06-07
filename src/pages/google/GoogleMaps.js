@@ -161,7 +161,7 @@ const GoogleMaps = () => {
               <h1 css={S.title}>{selectedMarker.title}</h1>
               {(selectedMarker.evalScore === null)
                 ? <h1>아직 평점이 없어요.</h1>
-                : <h1><RatingScoreUI rating={selectedMarker.evalScore} /></h1>}
+                : <div css={S.starScore}><h1><RatingScoreUI rating={selectedMarker.evalScore} /></h1></div>}
               {authState ? (
                 locationFavState ? (
                   <div onClick={() => undoLocationFav.mutate()} css={S.unSave}>

@@ -213,7 +213,10 @@ const PostDetailUI = ({ postDetail }) => {
                 </div>
                 <div>
                     <div css={S.detail}>
-                        {postDetail.content}<RatingScoreUI rating={postDetail.evalScore} />
+                        <RatingScoreUI rating={postDetail.evalScore} />
+                        <div style={{ margin: '40px 0'}}>
+                            {postDetail.content}
+                        </div>
                     </div>
                 </div>
             </div>
