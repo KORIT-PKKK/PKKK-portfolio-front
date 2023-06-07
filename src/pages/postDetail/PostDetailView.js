@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PostDetailUI from './model/PostDetailUI';
 import PlaceUI from './model/PlaceUI';
 import HeaderUI from './model/HeaderUI';
@@ -38,41 +38,41 @@ const PostDetailView = () => {
     }
 
     const postDetailView = useQuery(["postDetailView"], async () => {
-        if (postDetailView.isFirstLoad) {
-            if (rtk === undefined) {
-                const params = {
-                    params: {
-                        postId: postId
-                    }
-                };
-                const response = await axios.get(`${awsURL}/api/post/view`, params);
-                return response;
-            }
-    
-            const userId = Cookies.get("userId");
+        if (rtk === undefined) {
             const params = {
                 params: {
-                    postId: postId,
-                    userId: userId
-                    }
+                    postId: postId
+                }
             };
             const response = await axios.get(`${awsURL}/api/post/view`, params);
             return response;
         }
+
+        const userId = Cookies.get("userId");
+        const params = {
+            params: {
+                postId: postId,
+                userId: userId
+            }
+        };
+        const response = await axios.get(`${awsURL}/api/post/view`, params);
+        return response;
     }, {
+        enabled: false,
         onSuccess: (response) => {
             setPostDetail(response.data[0]);
         }
     });
-    
-    if (postDetailView.isLoading || postDetailView.isFirstLoad) {
+
+    useEffect(() => {
+        postDetailView.refetch();
+    }, []);
+
+    if (postDetailView.isLoading) {
         return <div>불러오는 중...</div>;
     }
 
-    if (postDetailView.isLoading) {
-        <div>불러오는 중...</div>
-    }
-    console.log(postDetail)
+    console.log(postDetail);
     return (
         <>
             <HeaderUI onClick={menuClickHandle} />
