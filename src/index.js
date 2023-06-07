@@ -6,6 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import Cookies from 'js-cookie';
+
+// beforeunload 이벤트 핸들러
+window.addEventListener('beforeunload', function () {
+  Cookies.remove('accessToken', { path: '/' });
+  Cookies.remove('refreshToken', { path: '/' });
+  Cookies.remove('username', { path: '/' });
+  Cookies.remove('userId', { path: '/' });
+});
+
 
 const queryClient = new QueryClient();
 

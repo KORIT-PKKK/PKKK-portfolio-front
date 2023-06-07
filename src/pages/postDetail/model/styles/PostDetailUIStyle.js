@@ -151,9 +151,11 @@ export const main = css`
 `;
 
 export const imageBox = css`
-    width: 375px;
+    width: 100%;
     height: 430px;
-    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow-y: hidden;
 `;
 
