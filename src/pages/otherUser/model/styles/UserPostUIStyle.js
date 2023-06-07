@@ -5,7 +5,7 @@ export const feed = css`
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    padding: 26px 20px 28px;
+    padding: 15px 20px 15px;
     width: 720px;
     height: 100%;
     margin: 20px auto 0px;

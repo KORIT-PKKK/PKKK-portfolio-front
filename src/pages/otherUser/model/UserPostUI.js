@@ -30,12 +30,14 @@ const UserPostUI = ({ post, onClick }) => {
     let now = new Date();
     let postDate = new Date(post.updateAt);
 
+    console.log(post)
+
     let formattedDate = "";
     if (now.toDateString() === postDate.toDateString()) {
-        const hours = postDate.getHours();
+        const hours = postDate.getHours().toString().padStart(2, '0');
         let ampm = hours >= 12 ? '오후' : '오전';
         const twelveHoursFormat = hours % 12 || 12;
-        const minutes = postDate.getMinutes();
+        const minutes = postDate.getMinutes().toString().padStart(2, '0');
         formattedDate = `${ampm} ${twelveHoursFormat}:${minutes}`;
     } else {
         const year = postDate.getFullYear();
@@ -136,6 +138,25 @@ const UserPostUI = ({ post, onClick }) => {
         <>
             <div css={S.feed}>
                 <div>
+                    작성일 : {formattedDate}
+                </div>
+                <main css={mainSetting(imageUrls.length)} onClick={showPostDetail}>
+                    <div css={getStyles(imageUrls)}>
+                        {imageUrls.map((url, index) => (
+                            index < 3 ?
+                                <div key={index} css={getIndexCss(index)}>
+                                    <img src={url} css={S.responsiveImage} />
+                                </div> : null
+                        ))}
+                    </div>
+                </main>
+                <div>
+                    <div css={S.detail}>
+                    <RatingScoreUI rating={post.evalScore} />
+                        <div style={{ margin: '40px 0'}}>
+                            {post.content}
+                        </div>
+                    </div>
                     <div css={S.placeContainer}>
                         <div css={S.place} onClick={showPlaceDetail}>
                             <div css={S.placeDetail}>
@@ -171,21 +192,6 @@ const UserPostUI = ({ post, onClick }) => {
                                 : <></>
                             }
                         </div>
-                    </div>
-                </div>
-                <main css={mainSetting(imageUrls.length)} onClick={showPostDetail}>
-                    <div css={getStyles(imageUrls)}>
-                        {imageUrls.map((url, index) => (
-                            index < 3 ?
-                                <div key={index} css={getIndexCss(index)}>
-                                    <img src={url} css={S.responsiveImage} />
-                                </div> : null
-                        ))}
-                    </div>
-                </main>
-                <div>
-                    <div css={S.detail}>
-                        {post.content}<RatingScoreUI rating={post.evalScore} />
                     </div>
                 </div>
             </div>

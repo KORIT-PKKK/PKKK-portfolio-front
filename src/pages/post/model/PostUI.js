@@ -49,10 +49,10 @@ const PostUI = ({ post, onClick }) => {
 
     let formattedDate = "";
     if (now.toDateString() === postDate.toDateString()) {
-        const hours = postDate.getHours();
+        const hours = postDate.getHours().toString().padStart(2, '0');
         let ampm = hours >= 12 ? '오후' : '오전';
         const twelveHoursFormat = hours % 12 || 12;
-        const minutes = postDate.getMinutes();
+        const minutes = postDate.getMinutes().toString().padStart(2, '0');
         formattedDate = `${ampm} ${twelveHoursFormat}:${minutes}`;
     } else {
         const year = postDate.getFullYear();
@@ -298,7 +298,10 @@ const PostUI = ({ post, onClick }) => {
                 </main>
                 <div>
                     <div css={S.detail}>
-                        {post.content}<RatingScoreUI rating={post.evalScore} />
+                        <RatingScoreUI rating={post.evalScore} />
+                        <div style={{ margin: '40px 0'}}>
+                            {post.content}
+                        </div>
                     </div>
                 </div>
                 <footer>

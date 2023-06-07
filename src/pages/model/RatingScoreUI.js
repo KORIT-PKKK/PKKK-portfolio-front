@@ -36,6 +36,7 @@ const RatingScoreUI = ({ rating }) => {
                 />
               );
             })}
+            <span className="rating">({rating})</span>
         </div>
       </div>
     </div>
