@@ -5,7 +5,6 @@ export const feed = css`
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    padding: 15px 20px 15px;
     width: 720px;
     height: 100%;
     margin: 20px auto 0px;
@@ -19,6 +18,21 @@ export const header = css`
     width: 680px;
     height: 42px;
     margin-bottom: 20px;
+`;
+
+export const date = css`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 8px 0px 15px 20px;
+    `;
+
+export const border =css`
+    padding: 3px;
+    border: 1px solid #dbdbdb;
 `;
 
 export const profile = css`

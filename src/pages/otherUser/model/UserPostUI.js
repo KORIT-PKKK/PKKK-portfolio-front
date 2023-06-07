@@ -137,8 +137,8 @@ const UserPostUI = ({ post, onClick }) => {
     return (
         <>
             <div css={S.feed}>
-                <div>
-                    작성일 : {formattedDate}
+                <div css={S.date}>
+                    <div css={S.border}>{formattedDate}</div> 
                 </div>
                 <main css={mainSetting(imageUrls.length)} onClick={showPostDetail}>
                     <div css={getStyles(imageUrls)}>

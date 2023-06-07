@@ -5,7 +5,6 @@ export const feed = css`
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    padding: 26px 20px 28px;
     width: 720px;
     height: 100%;
     margin: 20px auto 0px;
@@ -26,7 +25,7 @@ export const date = css`
     height: 100%;
     display: flex;
     align-items: center;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 600;
 `;
 
