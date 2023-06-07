@@ -38,7 +38,7 @@ const UserPostUI = ({ post, onClick }) => {
         let ampm = hours >= 12 ? '오후' : '오전';
         const twelveHoursFormat = hours % 12 || 12;
         const minutes = postDate.getMinutes().toString().padStart(2, '0');
-        formattedDate = `${ampm} ${twelveHoursFormat}:${minutes}`;
+        formattedDate = `오늘, ${ampm} ${twelveHoursFormat}:${minutes}`;
     } else {
         const year = postDate.getFullYear();
         const month = postDate.getMonth() + 1;
